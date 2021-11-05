@@ -1,0 +1,56 @@
+.indexBody {
+  background-image: url(../assets/pero-kalimero-9BJRGlqoIUk-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+    padding: 20px 0;
+  }
+}
+
+.mainBox{
+  background-color: rgb(158, 156, 156);
+  width: 50%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;  
+  main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.letsGo {
+  background-color: $blue;
+  padding: 10px 20px;
+  color: white;
+  margin: 20px 0;
+  text-transform: uppercase;
+  font-family: $body-font;
+  font-size: 40px;
+  font-weight: bold;
+  border: 5px solid $blue;
+  border-radius: 20px;
+  transition: all 0.4s ease-out;
+  box-shadow: 0 5px 5px rgb(58, 58, 58);
+};
+
+.letsGo:hover,
+.letsGo:focus{
+  background-color: white;
+  color: $blue;
+}
+
+.gifHeading{
+  color: $yellow;
+}

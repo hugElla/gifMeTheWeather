@@ -226,6 +226,103 @@ html {
   overflow: hidden;
 }
 
+h1 {
+  font-family: "raleway";
+  font-size: 50px;
+  font-weight: 400;
+  color: #8093f1;
+  text-transform: uppercase;
+  text-shadow: 0 5px 5px #3a3a3a;
+}
+
 a {
   text-decoration: none;
+}
+
+p,
+a {
+  font-family: "barlow";
+}
+
+.indexBody {
+  background-image: url(../assets/pero-kalimero-9BJRGlqoIUk-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.indexBody p {
+  margin: 0;
+  padding: 20px 0;
+}
+
+.mainBox {
+  background-color: #9e9c9c;
+  width: 50%;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5%;
+}
+.mainBox main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.letsGo {
+  background-color: #8093f1;
+  padding: 10px 20px;
+  color: white;
+  margin: 20px 0;
+  text-transform: uppercase;
+  font-family: "barlow";
+  font-size: 40px;
+  font-weight: bold;
+  border: 5px solid #8093f1;
+  border-radius: 20px;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+  -webkit-box-shadow: 0 5px 5px #3a3a3a;
+          box-shadow: 0 5px 5px #3a3a3a;
+}
+
+.letsGo:hover,
+.letsGo:focus {
+  background-color: white;
+  color: #8093f1;
+}
+
+.gifHeading {
+  color: #FAFF81;
 }
