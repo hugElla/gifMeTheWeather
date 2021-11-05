@@ -226,6 +226,6 @@ html {
   overflow: hidden;
 }
 
-h1 {
-  color: red;
+a {
+  text-decoration: none;
 }
