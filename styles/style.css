@@ -244,6 +244,28 @@ a {
   font-family: "barlow";
 }
 
+footer p {
+  background-color: white;
+  color: #9e9c9c;
+  border-radius: 20px;
+  padding: 10px;
+  -webkit-box-shadow: 0 2px 2px #3a3a3a;
+          box-shadow: 0 2px 2px #3a3a3a;
+  text-shadow: 0 1px 1px #3a3a3a;
+  font-weight: 500;
+}
+footer a {
+  color: #8093f1;
+  font-weight: 500;
+  text-shadow: 0 1px 1px #3a3a3a;
+  -webkit-transition: color 0.4s ease-out;
+  transition: color 0.4s ease-out;
+}
+footer a:hover,
+footer a:focus {
+  color: black;
+}
+
 .indexBody {
   background-image: url(../assets/pero-kalimero-9BJRGlqoIUk-unsplash.jpg);
   background-size: cover;
@@ -259,10 +281,6 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.indexBody p {
-  margin: 0;
-  padding: 20px 0;
 }
 
 .mainBox {
@@ -283,6 +301,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   padding: 5%;
+  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
 }
 .mainBox main {
   display: -webkit-box;
@@ -315,6 +335,7 @@ a {
   transition: all 0.4s ease-out;
   -webkit-box-shadow: 0 5px 5px #3a3a3a;
           box-shadow: 0 5px 5px #3a3a3a;
+  text-shadow: 0 3px 3px #3a3a3a;
 }
 
 .letsGo:hover,
@@ -324,5 +345,5 @@ a {
 }
 
 .gifHeading {
-  color: #FAFF81;
+  color: #faff81;
 }

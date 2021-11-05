@@ -7,10 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  p {
-    margin: 0;
-    padding: 20px 0;
-  }
 }
 
 .mainBox{
@@ -22,6 +18,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5%;  
+  box-shadow: 0px 0px 20px rgba($color: white, $alpha: 0.5);
   main{
     display: flex;
     flex-direction: column;
@@ -43,6 +40,7 @@
   border-radius: 20px;
   transition: all 0.4s ease-out;
   box-shadow: 0 5px 5px rgb(58, 58, 58);
+  text-shadow: 0 3px 3px rgb(58, 58, 58);
 };
 
 .letsGo:hover,
