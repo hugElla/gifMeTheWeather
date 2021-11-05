@@ -1,5 +1,10 @@
 const app = {}
 
+app.randomizer = (array) => {
+            const randomIndex = Math.floor(Math.random() * 10);
+            return array[randomIndex];
+        }
+
 app.getWeather = () => {
     fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/55488?apikey=vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ&language=en-us&details=true&metric=true')
         .then(function (response) {
