@@ -22,6 +22,8 @@ app.getWeather = () => {
         })
 }
 
+app.rainArray = [];
+
 
 app.displayForecast = (arrayFromWeather) => {
     // query the DOM for the Daytime iconphrase
@@ -64,9 +66,7 @@ app.displayForecast = (arrayFromWeather) => {
             dayListEl.appendChild(dayElements);
         } 
 
-        
-
-
+        console.log(dayArray)
 
 
         
@@ -91,29 +91,16 @@ app.retrieveGif = (iconPhrase) => {
             // Querying the DOM for the GIF container
             app.chosenGifs.push(app.randomizer(obtainedGifs));
             
+            const gifContainers = document.querySelectorAll(".gifArea");
             
+            for(i = 0; i < 5; i++){
+                gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
+            }
         })
     }  
     
-const gifContainers = document.querySelectorAll(".gifArea");
-for (i = 0; i < app.chosenGifs.length; i--){
-    for(i = 0; i < app.chosenGifs.length; i++){
-        gifContainers.innerHTML = `<img src="url(${app.chosenGifs[i].images.original.url})" alt="url(${app.chosenGifs[i].title})">`
-    }
-}
 
     
-app.chosenGifs.forEach((gif) =>{
-    // an create image element
-    const imgEl = document.createElement("img");
-    // console.log(gif)
-    // add the content to the img element src & alt text
-    imgEl.src = gif.images.original.url;
-    imgEl.alt = gif.title;
-
-    console.log(imgEl)
-    
-})
     
     
 app.init = () => {
