@@ -22,6 +22,14 @@ app.getWeather = () => {
         })
 }
 
+app.iconPhraseArray = [];
+app.rainArray = [];
+app.snowArray = [];
+app.iceArray = [];
+
+app.feelsLikeMax = [];
+app.feelsLikeMin = [];
+
 
 app.displayForecast = (arrayFromWeather) => {
     // query the DOM for the Daytime iconphrase
@@ -48,6 +56,15 @@ app.displayForecast = (arrayFromWeather) => {
        
         dayElements.innerText = `POP: ${dayArray.PrecipitationProbability}%`
         dayListEl.appendChild(dayElements)
+        
+        arrayFromWeather.forEach((dayArray) => {  
+            app.iconPhraseArray.push(dayArray.Day.IconPhrase);
+            app.rainArray.push(dayArray.Day.Rain);
+            app.snowArray.push(dayArray.Day.Snow);
+            app.iceArray.push(dayArray.Day.Ice);
+            app.feelsLikeMax.push(Math.round(dayArray.RealFeelTemperature.Maximum.Value) + "°" + dayArray.RealFeelTemperature.Maximum.Unit);
+            app.feelsLikeMin.push(Math.round(dayArray.RealFeelTemperature.Minimum.Value) + "°" + dayArray.RealFeelTemperature.Minimum.Unit);
+        })
 
         if (dayRain.Value > 0 && dayRain.Value !== null) {
             dayElements.innerText = `${dayRain.Value} ${dayRain.Unit}`;
@@ -64,12 +81,27 @@ app.displayForecast = (arrayFromWeather) => {
             dayListEl.appendChild(dayElements);
         } 
 
-        
+
+        const dayIconPhraseContainers = document.querySelectorAll(".dayIconPhrase");
+        const tempMaxContainers = document.querySelectorAll(".temperatureMax");
+        const tempMinContainers = document.querySelectorAll(".temperatureMin");
 
 
+        for(i = 0; i < 5; i++){
+            // gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
+            dayIconPhraseContainers[i].innerText = `${app.iconPhraseArray[i]}`
+        }
 
+        // app.iconPhraseArray = [];
+        // app.rainArray = [];
+        // app.snowArray = [];
+        // app.iceArray = [];
 
-        
+        // app.feelsLikeMax = [];
+        // app.feelsLikeMin = [];
+
+        console.log(dayArray)
+
     
         // send the weather forecast for the day to the GIPHY API
         app.retrieveGif(dayPhrase);
@@ -91,29 +123,16 @@ app.retrieveGif = (iconPhrase) => {
             // Querying the DOM for the GIF container
             app.chosenGifs.push(app.randomizer(obtainedGifs));
             
+            const gifContainers = document.querySelectorAll(".gifArea");
             
+            for(i = 0; i < 5; i++){
+                gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
+            }
         })
     }  
     
-const gifContainers = document.querySelectorAll(".gifArea");
-for (i = 0; i < app.chosenGifs.length; i--){
-    for(i = 0; i < app.chosenGifs.length; i++){
-        gifContainers.innerHTML = `<img src="url(${app.chosenGifs[i].images.original.url})" alt="url(${app.chosenGifs[i].title})">`
-    }
-}
 
     
-app.chosenGifs.forEach((gif) =>{
-    // an create image element
-    const imgEl = document.createElement("img");
-    // console.log(gif)
-    // add the content to the img element src & alt text
-    imgEl.src = gif.images.original.url;
-    imgEl.alt = gif.title;
-
-    console.log(imgEl)
-    
-})
     
     
 app.init = () => {
