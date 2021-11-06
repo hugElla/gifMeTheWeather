@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>weatherrrr</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Raleway:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/style.css">
 </head>
-
 <body>
   <header>
-    <h1><span class="gifHeading">GIF</span> me the weather</h1>
+    <h1>GIF me the weather</h1>
     <h2>Here is the forecast for <span>Current city</span></h2>
   </header>
-  <main>
-    <section class="weatherColumn">
-      <h3>Date</h3>
-      <div class="gifArea">
-        <!-- GIF goes in here -->
-      </div>
-      <div class="day">
-        <h4 class="dayIconPhrase"></h4>
-        <p class="temperature"></p>
-        <p class="feelsLike"></p>
-      </div>
-      <div class="night">
-        <h4 class="nightIconPhrase"></h4>
-        <p class="temperature"></p>
-        <p class="feelsLike"></p>
-      </div>
-      <p class="percentagePrecipitation"></p>
-      <p class="windSpeed"></p>
-    </section>
-    <section class="Activity of the day">
+<main>
+  <section class="weatherColumn">
+    <h3>Date</h3>
+    <div class="gifArea">
+      <!-- GIF goes in here -->
+    </div>
+    <div class="day">
+      <h4 class="dayIconPhrase"></h4>
+      <ul>
+        <!-- Dynamic day content goes here -->
+      </ul>
+    </div>
+    <div class="night">
+      <h4 class="nightIconPhrase"></h4>
+      <ul>
+        <!-- Dynamic night content goes here -->
+      </ul>
+    </div>
+    <div class="temperature">
+      <ul>
+        <!-- Dynamic temperature content -->
+      </ul>
+    </div>
+  </section>
+  <section class="Activity of the day">
 
-    </section>
+  </section>
 
-    <button class="nextCity"></button>
-  </main>
+  <button class="nextCity"></button>
+</main>
 
-  <footer>
-    <p>Created at <a href="https://junocollege.com/"> Juno College of Technology</a></p>
-  </footer>
+<footer>
+  <p>Created at <a href="https://junocollege.com/">  Juno College of Technology</a></p>
+</footer>
 
-  <script src="./scripts.js"></script>
+<script src="./scripts.js"></script>
 </body>
-
 </html>
