@@ -89,17 +89,17 @@ app.retrieveGif = (iconPhrase) => {
             const obtainedGifs = gifArray.data
 
             // Querying the DOM for the GIF container
-            const gifContainers = document.querySelectorAll(".gifArea");
             app.chosenGifs.push(app.randomizer(obtainedGifs));
-        
+            
             
         })
     }  
-
-for (i = 0; i < app.chosenGifs.length; i++){
-    for(i = 0; i<)
-
-
+    
+const gifContainers = document.querySelectorAll(".gifArea");
+for (i = 0; i < app.chosenGifs.length; i--){
+    for(i = 0; i < app.chosenGifs.length; i++){
+        gifContainers.innerHTML = `<img src="url(${app.chosenGifs[i].images.original.url})" alt="url(${app.chosenGifs[i].title})">`
+    }
 }
 
     
