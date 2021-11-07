@@ -52,7 +52,7 @@ app.displayForecast = (arrayFromWeather) => {
 
   arrayFromWeather.forEach((dayWeather) => {
     const dayPhrase = dayWeather.Day.IconPhrase
-    app.date.push(dayWeather.Date);
+    app.date.push(dayWeather.Date.slice(0,10));
     app.dayIconPhraseArray.push(dayWeather.Day.IconPhrase);
     app.dayRainArray.push(dayWeather.Day.Rain);
     app.daySnowArray.push(dayWeather.Day.Snow);
@@ -99,7 +99,7 @@ app.displayForecast = (arrayFromWeather) => {
     // if (dayIce.Value > 0 && dayIce.Value !== null) {
     // } 
     for (i = 0; i < 5; i++) {
-      dateContainers[i].innerText = `Date: ${app.date[i].slice(0,10)}`;
+      dateContainers[i].innerText = `Date: ${app.date[i]}`;
       dayIconPhraseContainers[i].innerText = `Day: ${app.dayIconPhraseArray[i]}`
       // dayRainContainers[i].innerText = `${app.dayRainArray[i]}`
       // daySnowContainers[i].innerText = `${app.daySnowArray[i]}`
