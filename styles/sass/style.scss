@@ -3,10 +3,11 @@
 // colour variables
 $blue: #8093f1;
 $yellow: #faff81;
+$gray: rgb(158, 156, 156);
 $header-font: "raleway";
 $body-font: "barlow";
 
-// both page styling
+// both general page styling
 h1 {
   font-family: $header-font;
   font-size: 50px;
@@ -48,3 +49,4 @@ footer {
 }
 
 @import "home";
+@import "weather";

@@ -1,0 +1,27 @@
+
+
+
+main {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+
+
+.weatherColumn {
+    background-color: $gray;
+    display: flex;
+    flex-direction: column;
+    img {
+        max-height: 100px;
+    }
+}
+
+.activity {
+    background-color: rebeccapurple;
+    height: 100px;
+}
+
+
+
+

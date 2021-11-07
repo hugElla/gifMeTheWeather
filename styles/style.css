@@ -347,3 +347,27 @@ footer a:focus {
 .gifHeading {
   color: #faff81;
 }
+
+main {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.weatherColumn {
+  background-color: #9e9c9c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.weatherColumn img {
+  max-height: 100px;
+}
+
+.activity {
+  background-color: rebeccapurple;
+  height: 100px;
+}

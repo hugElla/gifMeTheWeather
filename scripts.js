@@ -6,8 +6,8 @@ app.randomizer = (array) => {
         }
 
 app.location = 55488;
-app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
-// app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
+// app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
+app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
 app.url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${app.location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`
 
@@ -137,9 +137,9 @@ app.retrieveGif = (iconPhrase) => {
             
             const gifContainers = document.querySelectorAll(".gifArea");
             
-            // for(i = 0; i < 5; i++){
-            //     gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
-            // }
+            for(i = 0; i < 5; i++){
+                gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
+            }
         })
     }  
     
