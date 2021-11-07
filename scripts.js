@@ -99,7 +99,7 @@ app.displayForecast = (arrayFromWeather) => {
     // if (dayIce.Value > 0 && dayIce.Value !== null) {
     // } 
     for (i = 0; i < 5; i++) {
-      dateContainers[i].innerText = `Date: ${app.date[i]}`;
+      dateContainers[i].innerText = `Date: ${app.date[i].slice(0,10)}`;
       dayIconPhraseContainers[i].innerText = `Day: ${app.dayIconPhraseArray[i]}`
       // dayRainContainers[i].innerText = `${app.dayRainArray[i]}`
       // daySnowContainers[i].innerText = `${app.daySnowArray[i]}`
