@@ -26,101 +26,106 @@ app.getWeather = () => {
     })
 }
 
-// creating empty arrays to pass info we will need to display on the page
-app.date = [];
-app.iconPhraseArray = [];
-app.rainArray = [];
-app.snowArray = [];
-app.iceArray = [];
+// Empty arrays for daily objects
+app.dayIconPhraseArray = [];
+app.dayRainArray = [];
+app.daySnowArray = [];
+app.dayIceArray = [];
+app.dayWindArray = [];
 
+app.nightIconPhraseArray = [];
+app.nightRainArray = [];
+app.nightSnowArray = [];
+app.nightIceArray = [];
+app.nightWindArray = [];
+
+app.realTempMax = [];
+app.realTempMin = [];
 app.feelsLikeMax = [];
 app.feelsLikeMin = [];
 app.realTempMin = [];
 app.realTempMax = [];
 app.windSpeed = [];
 
-
-// getting info we need to pass into arrays
 app.displayForecast = (arrayFromWeather) => {
-  // query the DOM for the Daytime iconphrase
-  const dayIconPhrase = document.querySelector(".dayIconPhrase");
-  // query the DOM for the <ul> for daytime forecast
-  const dayUl = document.querySelector(".day ul");
 
-  // query the DOM for the Nighttime iconphrase
-  const nightIconPhrase = document.querySelector(".nightIconPhrase");
-  // query the DOM for the <ul> for nighttime forecast
-  const nightUl = document.querySelector(".night ul");
+    arrayFromWeather.forEach((dayWeather) => {
+        const dayPhrase = dayWeather.Day.IconPhrase
+        
+        arrayFromWeather.forEach((dayWeather) => {  
+            app.dayIconPhraseArray.push(dayWeather.Day.IconPhrase);
+            app.dayRainArray.push(dayWeather.Day.Rain);
+            app.daySnowArray.push(dayWeather.Day.Snow);
+            app.dayIceArray.push(dayWeather.Day.Ice);
+            app.dayWindArray.push(dayWeather.Day.Wind.Speed.Value + dayWeather.Day.Wind.Speed.Unit);
 
-  arrayFromWeather.forEach((dayArray) => {
-    // Creating list element for dynamic ul
-    const dayListEl = document.createElement("li");
-    const dayElements = document.createElement("p")
-    const dayRain = dayArray.Day.Rain
-    const daySnow = dayArray.Day.Snow
-    const dayIce = dayArray.Day.Ice
-    const dayPhrase = dayArray.Day.IconPhrase
+            app.nightIconPhraseArray.push(dayWeather.Night.IconPhrase);
+            app.nightRainArray.push(dayWeather.Night.Rain);
+            app.nightSnowArray.push(dayWeather.Night.Snow);
+            app.nightIceArray.push(dayWeather.Night.Ice);
+            app.nightWindArray.push(dayWeather.Night.Wind.Speed.Value + dayWeather.Day.Wind.Speed.Unit);
 
-    dayIconPhrase.innerText = `${dayArray.Day.IconPhrase}`
+            app.realTempMax.push(Math.round(dayWeather.Temperature.Maximum.Value) + "°" + dayWeather.Temperature.Maximum.Unit);
+            app.realTempMin.push(Math.round(dayWeather.Temperature.Minimum.Value) + "°" + dayWeather.Temperature.Minimum.Unit);
+            app.feelsLikeMax.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value) + "°" + dayWeather.RealFeelTemperature.Maximum.Unit);
+            app.feelsLikeMin.push(Math.round(dayWeather.RealFeelTemperature.Minimum.Value) + "°" + dayWeather.RealFeelTemperature.Minimum.Unit);
+        })
 
-    // pushing info onto arrays
-    app.date.push(dayArray.Date)
-    app.iconPhraseArray.push(dayArray.Day.IconPhrase);
-    app.rainArray.push(dayArray.Day.Rain);
-    app.snowArray.push(dayArray.Day.Snow);
-    app.iceArray.push(dayArray.Day.Ice);
+        
+        
+        const dayIconPhraseContainers = document.querySelectorAll(".dayIconPhrase");
+        const dayRainContainers = document.querySelectorAll(".dayRain");
+        const daySnowContainers = document.querySelectorAll(".daySnow");
+        const dayIceContainers = document.querySelectorAll(".dayIce");
+        const dayWindContainers = document.querySelectorAll(".dayWind");
+        
+        const nightIconPhraseContainers = document.querySelectorAll(".nightIconPhrase");
+        const nightRainContainers = document.querySelectorAll(".nightRain");
+        const nightSnowContainers = document.querySelectorAll(".nightSnow");
+        const nightIceContainers = document.querySelectorAll(".nightIce");
+        const nightWindContainers = document.querySelectorAll(".nightWind");
+        
+        const tempMaxContainers = document.querySelectorAll(".temperatureMax");
+        const tempMinContainers = document.querySelectorAll(".temperatureMin");
+        const feelMaxContainers = document.querySelectorAll(".feelsMax");
+        const feelMinContainers = document.querySelectorAll(".feelsMin");
+        
+        // need to add conditional statements to only show if there's precipitation
+            // if (dayRain.Value > 0 && dayRain.Value !== null) {
+            // } 
 
-    app.feelsLikeMax.push(Math.round(dayArray.RealFeelTemperature.Maximum.Value) + "°" + dayArray.RealFeelTemperature.Maximum.Unit);
-    app.feelsLikeMin.push(Math.round(dayArray.RealFeelTemperature.Minimum.Value) + "°" + dayArray.RealFeelTemperature.Minimum.Unit);
-    app.realTempMax.push(Math.round(dayArray.Temperature.Maximum.Value) + "°" + dayArray.Temperature.Maximum.Unit);
-    app.realTempMin.push(Math.round(dayArray.Temperature.Minimum.Value) + "°" + dayArray.Temperature.Minimum.Unit);
-    app.windSpeed.push(dayArray.Day.Wind.Speed.Value + dayArray.Day.Wind.Speed.Unit);
-    dayElements.innerText = `POP: ${dayArray.PrecipitationProbability}%`
-    dayListEl.appendChild(dayElements)
+            // if (daySnow.Value > 0 && daySnow.Value !== null) {
+            // } 
 
-    if (dayRain.Value > 0 && dayRain.Value !== null) {
-      dayElements.innerText = `${dayRain.Value} ${dayRain.Unit}`;
-      dayListEl.appendChild(dayElements);
-    }
+            // if (dayIce.Value > 0 && dayIce.Value !== null) {
+            // } 
+        for(i = 0; i < 5; i++){
+            dayIconPhraseContainers[i].innerText = `Day: ${app.dayIconPhraseArray[i]}`
+            // dayRainContainers[i].innerText = `${app.dayRainArray[i]}`
+            // daySnowContainers[i].innerText = `${app.daySnowArray[i]}`
+            // dayIceContainers[i].innerText = `${app.dayIceArray[i]}`
+            dayWindContainers[i].innerText = `Wind: ${app.dayWindArray[i]}`
 
-    if (daySnow.Value > 0 && daySnow.Value !== null) {
-      dayElements.innerText = `${daySnow.Value} ${daySnow.Unit}`;
-      dayListEl.appendChild(dayElements);
-    }
+            nightIconPhraseContainers[i].innerText = `Night: ${app.nightIconPhraseArray[i]}`
+            // nightRainContainers[i].innerText = `${app.nightRainArray[i]}`
+            // nightSnowContainers[i].innerText = `${app.nightSnowArray[i]}`
+            // nightIceContainers[i].innerText = `${app.nightIceArray[i]}`
+            nightWindContainers[i].innerText = `Wind: ${app.nightWindArray[i]}`
 
-    if (dayIce.Value > 0 && dayIce.Value !== null) {
-      dayElements.innerText = `${dayIce.Value} ${dayIce.Unit}`;
-      dayListEl.appendChild(dayElements);
-    }
-
-
-    // querying the dom for elements to be populated
-    const dayIconPhraseContainers = document.querySelectorAll(".dayIconPhrase");
-    const tempMaxContainers = document.querySelectorAll(".temperatureMax");
-    const tempMinContainers = document.querySelectorAll(".temperatureMin");
-
-
-    // populating elements
-    for (i = 0; i < 5; i++) {
-      // gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
-      dayIconPhraseContainers[i].innerText = `${app.iconPhraseArray[i]}`
-    }
-
-    // app.iconPhraseArray = [];
-    // app.rainArray = [];
-    // app.snowArray = [];
-    // app.iceArray = [];
-
-    // app.feelsLikeMax = [];
-    // app.feelsLikeMin = [];
-
-    console.log(dayArray)
+            tempMaxContainers[i].innerText = `High: ${app.realTempMax[i]}`
+            tempMinContainers[i].innerText = `Low: ${app.realTempMin[i]}`
+            feelMaxContainers[i].innerText = `Feels like high: ${app.feelsLikeMax[i]}`
+            feelMinContainers[i].innerText = `Feels like low: ${app.feelsLikeMin[i]}`
+        }
 
 
-    // send the weather forecast for the day to the GIPHY API
-    app.retrieveGif(dayPhrase);
+        console.log(dayWeather)
 
-  })
+    
+        // send the weather forecast for the day to the GIPHY API
+        app.retrieveGif(dayPhrase);
+        
+    })    
 }
 // creating an array for gifs chosen randomly to be pushed into
 app.chosenGifs = [];
@@ -128,28 +133,28 @@ app.chosenGifs = [];
 // giphy api call
 app.giphyApiKey = "bT4cKp5t3W32Z0y3nvvnDyW6I3neAsH2"
 app.retrieveGif = (iconPhrase) => {
-  fetch(`https://api.giphy.com/v1/gifs/search?q=weather+sky+` + iconPhrase + `&api_key=${app.giphyApiKey}`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then((gifArray) => {
-      const obtainedGifs = gifArray.data
+    fetch(`https://api.giphy.com/v1/gifs/search?q=weather+sky+`+iconPhrase+`&api_key=${app.giphyApiKey}`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then((gifArray) => {
+            const obtainedGifs = gifArray.data
 
-      // Querying the DOM for the GIF container
-      app.chosenGifs.push(app.randomizer(obtainedGifs));
+            // Querying the DOM for the GIF container
+            app.chosenGifs.push(app.randomizer(obtainedGifs));
+            
+            const gifContainers = document.querySelectorAll(".gifArea");
+            
+            // for(i = 0; i < 5; i++){
+            //     gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
+            // }
+        })
+    }  
+    
 
-      const gifContainers = document.querySelectorAll(".gifArea");
-
-      for (i = 0; i < 5; i++) {
-        gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
-      }
-    })
-}
-
-
-
-
-
+    
+    
+    
 app.init = () => {
   app.getWeather();
 }
