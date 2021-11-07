@@ -9,8 +9,8 @@ app.randomizer = (array) => {
 
 // variables to use for api call: accuweather
 app.location = 55488;
-app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
-// app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
+// app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
+app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
 app.url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${app.location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`
 
@@ -27,6 +27,7 @@ app.getWeather = () => {
 }
 
 // Empty arrays for daily objects
+app.date = [];
 app.dayIconPhraseArray = [];
 app.dayRainArray = [];
 app.daySnowArray = [];
@@ -51,8 +52,7 @@ app.displayForecast = (arrayFromWeather) => {
 
     arrayFromWeather.forEach((dayWeather) => {
         const dayPhrase = dayWeather.Day.IconPhrase
-        
-        arrayFromWeather.forEach((dayWeather) => {  
+            app.date.push(dayWeather.Date);
             app.dayIconPhraseArray.push(dayWeather.Day.IconPhrase);
             app.dayRainArray.push(dayWeather.Day.Rain);
             app.daySnowArray.push(dayWeather.Day.Snow);
@@ -69,7 +69,6 @@ app.displayForecast = (arrayFromWeather) => {
             app.realTempMin.push(Math.round(dayWeather.Temperature.Minimum.Value) + "°" + dayWeather.Temperature.Minimum.Unit);
             app.feelsLikeMax.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value) + "°" + dayWeather.RealFeelTemperature.Maximum.Unit);
             app.feelsLikeMin.push(Math.round(dayWeather.RealFeelTemperature.Minimum.Value) + "°" + dayWeather.RealFeelTemperature.Minimum.Unit);
-        })
 
         
         
@@ -145,9 +144,9 @@ app.retrieveGif = (iconPhrase) => {
             
             const gifContainers = document.querySelectorAll(".gifArea");
             
-            // for(i = 0; i < 5; i++){
-            //     gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
-            // }
+            for(i = 0; i < 5; i++){
+                gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
+            }
         })
     }  
     
