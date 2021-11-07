@@ -12,11 +12,25 @@ app.location = 55488;
 // app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
 app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
-app.url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${app.location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`
+// app.url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`;
 
-// api call
-app.getWeather = () => {
-  fetch(app.url)
+app.locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${app.apiKey}&q=montreal&language=en-us&details=true`;
+
+
+// api call to get inputted location
+app.getLocation = () => {
+  fetch(app.locationUrl)
+    .then(function (response) {
+      return response.json();
+    })
+      .then((data) => {
+        app.getWeather(data[0].Key)
+      });
+};
+
+// api call to get weather
+app.getWeather = (location) => {
+  fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`)
     .then(function (response) {
       return response.json();
     })
@@ -156,6 +170,7 @@ app.retrieveGif = (iconPhrase) => {
 
 
 app.init = () => {
+  app.getLocation();
   app.getWeather();
 }
 
