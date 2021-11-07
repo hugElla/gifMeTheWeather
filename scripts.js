@@ -27,6 +27,7 @@ app.getWeather = () => {
 }
 
 // creating empty arrays to pass info we will need to display on the page
+app.date = [];
 app.iconPhraseArray = [];
 app.rainArray = [];
 app.snowArray = [];
@@ -62,22 +63,20 @@ app.displayForecast = (arrayFromWeather) => {
 
     dayIconPhrase.innerText = `${dayArray.Day.IconPhrase}`
 
+    // pushing info onto arrays
+    app.date.push(dayArray.Date)
+    app.iconPhraseArray.push(dayArray.Day.IconPhrase);
+    app.rainArray.push(dayArray.Day.Rain);
+    app.snowArray.push(dayArray.Day.Snow);
+    app.iceArray.push(dayArray.Day.Ice);
 
+    app.feelsLikeMax.push(Math.round(dayArray.RealFeelTemperature.Maximum.Value) + "°" + dayArray.RealFeelTemperature.Maximum.Unit);
+    app.feelsLikeMin.push(Math.round(dayArray.RealFeelTemperature.Minimum.Value) + "°" + dayArray.RealFeelTemperature.Minimum.Unit);
+    app.realTempMax.push(Math.round(dayArray.Temperature.Maximum.Value) + "°" + dayArray.Temperature.Maximum.Unit);
+    app.realTempMin.push(Math.round(dayArray.Temperature.Minimum.Value) + "°" + dayArray.Temperature.Minimum.Unit);
+    app.windSpeed.push(dayArray.Day.Wind.Speed.Value + dayArray.Day.Wind.Speed.Unit);
     dayElements.innerText = `POP: ${dayArray.PrecipitationProbability}%`
     dayListEl.appendChild(dayElements)
-
-    arrayFromWeather.forEach((dayArray) => {
-      app.iconPhraseArray.push(dayArray.Day.IconPhrase);
-      app.rainArray.push(dayArray.Day.Rain);
-      app.snowArray.push(dayArray.Day.Snow);
-      app.iceArray.push(dayArray.Day.Ice);
-
-      app.feelsLikeMax.push(Math.round(dayArray.RealFeelTemperature.Maximum.Value) + "°" + dayArray.RealFeelTemperature.Maximum.Unit);
-      app.feelsLikeMin.push(Math.round(dayArray.RealFeelTemperature.Minimum.Value) + "°" + dayArray.RealFeelTemperature.Minimum.Unit);
-      app.realTempMax.push(Math.round(dayArray.Temperature.Maximum.Value) + "°" + dayArray.Temperature.Maximum.Unit);
-      app.realTempMin.push(Math.round(dayArray.Temperature.Minimum.Value) + "°" + dayArray.Temperature.Minimum.Unit);
-      app.windSpeed.push(dayArray.Day.Wind.Speed.Value + dayArray.Day.Wind.Speed.Unit);
-    })
 
     if (dayRain.Value > 0 && dayRain.Value !== null) {
       dayElements.innerText = `${dayRain.Value} ${dayRain.Unit}`;
@@ -123,7 +122,6 @@ app.displayForecast = (arrayFromWeather) => {
 
   })
 }
-
 // creating an array for gifs chosen randomly to be pushed into
 app.chosenGifs = [];
 
