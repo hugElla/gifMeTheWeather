@@ -10,8 +10,10 @@ app.randomizer = (array) => {
 // variables to use for api call: accuweather
 app.location = 55488;
 // app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
-app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
+// app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
+// app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
+app.apiKey = "6TK8aMoezoeYGHIAiTiWck1u7uaxPARF";
 app.url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${app.location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`
 
 // api call

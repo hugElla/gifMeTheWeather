@@ -1,36 +1,4 @@
-
-
-main {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-}
-
-
-
-.weatherColumn {
-    background-color: $gray;
-    display: flex;
-    flex-direction: column;
-    img {
-        max-height: 100px;
-    }
-}
-
-.activity {
-    background-color: rebeccapurple;
-    height: 100px;
-}
-
-.weatherBody{
-    background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
-    background-size: 600% 600%;
-
-    -webkit-animation: AnimationName 33s ease infinite;
-    -moz-animation: AnimationName 33s ease infinite;
-    animation: AnimationName 33s ease infinite;
-}
-
-
+// Background animation 
 
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 52%}
@@ -47,6 +15,63 @@ main {
     50%{background-position:100% 49%}
     100%{background-position:0% 52%}
 }
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+
+
+main {
+    // display: grid;
+    // grid-template-columns: auto auto auto auto auto;
+    display: flex;
+    justify-content: space-between;
+}    
+
+
+
+.weatherColumn {
+    background-image: linear-gradient($gray, $blue2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 1%;
+    .weatherWrapper {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .gifArea {
+        height: 150px;
+        width: 100%;
+    // 🚨 placeholder
+        background-color: blue;
+    } 
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }   
+}    
+
+.activity {
+    background-color: rebeccapurple;
+    height: 100px;
+}    
+
+.weatherBody{
+    background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 33s ease infinite;
+    -moz-animation: AnimationName 33s ease infinite;
+    animation: AnimationName 33s ease infinite;
+}    
+
 
 
 
