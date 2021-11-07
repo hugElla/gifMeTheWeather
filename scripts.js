@@ -10,16 +10,27 @@ app.randomizer = (array) => {
 // variables to use for api call: accuweather
 app.location = 55488;
 // app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
-app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
+// app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
+app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
 // app.url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`;
+app.locationName = ""
 
-app.locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${app.apiKey}&q=montreal&language=en-us&details=true`;
+// app.locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${app.apiKey}&q=${locationQuery}&language=en-us&details=true`;
+
+app.locationSubmission = () => {
+  const locationQ = document.querySelector('button');
+  locationQ.addEventListener('click', (event) => {
+    event.preventDefault();
+    app.locationName = document.getElementById('locationInput').value;
+    app.getLocation(app.locationName);
+  })
+}
 
 
 // api call to get inputted location
-app.getLocation = () => {
-  fetch(app.locationUrl)
+app.getLocation = (locationQuery) => {
+  fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${app.apiKey}&q=${locationQuery}&language=en-us&details=true`)
     .then(function (response) {
       return response.json();
     })
@@ -170,8 +181,7 @@ app.retrieveGif = (iconPhrase) => {
 
 
 app.init = () => {
-  app.getLocation();
-  app.getWeather();
+  app.locationSubmission();
 }
 
 app.init()
