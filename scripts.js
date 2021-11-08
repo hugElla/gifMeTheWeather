@@ -8,25 +8,75 @@ app.randomizer = (array) => {
 }
 
 // variables to use for api call: accuweather
-app.location = 55488;
+
+// EXTRA API KEYS, CALLS LIMITED TO 50 PER DAY. COMMENT IN/OUT AS NEEDED
 // app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
 // app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
 // app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
 app.apiKey = "6TK8aMoezoeYGHIAiTiWck1u7uaxPARF";
-app.url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${app.location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`
 
-// api call
-app.getWeather = () => {
-  fetch(app.url)
+
+
+// takes user inputted city to pass to the apis
+app.locationSubmission = () => {
+  // when the button is clicked:
+  const locationQ = document.querySelector('button');
+  locationQ.addEventListener('click', (event) => {
+    // prevents refresh
+    event.preventDefault();
+
+    // gets the name of location and passes it to getLocation
+    app.locationName = document.getElementById('locationInput').value;
+    app.getLocation(app.locationName);
+
+    // clears the form
+    app.form = document.querySelector("form");
+    app.form.reset();
+  });
+};
+
+
+
+
+
+// api call to get inputted location
+app.getLocation = (locationQuery) => {
+  fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${app.apiKey}&q=${locationQuery}&language=en-us&details=true`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then((data) => {
+      // updates the h2 span to display location
+      const city = data[0].EnglishName;
+      const country = data[0].Country.EnglishName;
+      const displayLocation = document.querySelector('h2 span');
+      displayLocation.textContent = `${city}, ${country}.`
+
+      // passes location id to getWeather
+      app.getWeather(data[0].Key)
+    });
+};
+
+
+
+
+
+// api call to get weather for inputted location
+app.getWeather = (location) => {
+  fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`)
     .then(function (response) {
       return response.json();
     })
     .then((data) => {
       // console.log(data.DailyForecasts);
+      // passes the info to displayForecast
       app.displayForecast(data.DailyForecasts);
     })
 }
+
+
+
 
 // Empty arrays for daily objects
 app.date = [];
@@ -50,11 +100,41 @@ app.realTempMin = [];
 app.realTempMax = [];
 app.windSpeed = [];
 
-app.displayForecast = (arrayFromWeather) => {
+// creating an array for gifs chosen randomly to be pushed into
+app.chosenGifs = [];
 
+
+
+// displays the weather to the page
+app.displayForecast = (arrayFromWeather) => {
+  // empties arrays before adding values in
+  app.date = [];
+  app.dayIconPhraseArray = [];
+  app.dayRainArray = [];
+  app.daySnowArray = [];
+  app.dayIceArray = [];
+  app.dayWindArray = [];
+
+  app.nightIconPhraseArray = [];
+  app.nightRainArray = [];
+  app.nightSnowArray = [];
+  app.nightIceArray = [];
+  app.nightWindArray = [];
+
+  app.realTempMax = [];
+  app.realTempMin = [];
+  app.feelsLikeMax = [];
+  app.feelsLikeMin = [];
+  app.realTempMin = [];
+  app.realTempMax = [];
+  app.windSpeed = [];
+
+  app.chosenGifs = [];
+
+  // pushes returned values to the arrays
   arrayFromWeather.forEach((dayWeather) => {
     const dayPhrase = dayWeather.Day.IconPhrase
-    app.date.push(dayWeather.Date.slice(0,10));
+    app.date.push(dayWeather.Date.slice(0, 10));
     app.dayIconPhraseArray.push(dayWeather.Day.IconPhrase);
     app.dayRainArray.push(dayWeather.Day.Rain);
     app.daySnowArray.push(dayWeather.Day.Snow);
@@ -129,8 +209,9 @@ app.displayForecast = (arrayFromWeather) => {
 
   })
 }
-// creating an array for gifs chosen randomly to be pushed into
-app.chosenGifs = [];
+
+
+
 
 // giphy api call
 app.giphyApiKey = "bT4cKp5t3W32Z0y3nvvnDyW6I3neAsH2"
@@ -140,19 +221,19 @@ app.retrieveGif = (iconPhrase) => {
       return response.json();
     })
     .then((gifArray) => {
-      const obtainedGifs = gifArray.data
-
-      // Querying the DOM for the GIF container
+      const obtainedGifs = gifArray.data;
+      // randomizes returned gifs
       app.chosenGifs.push(app.randomizer(obtainedGifs));
-
+      
+      // Querying the DOM for the GIF container
       const gifContainers = document.querySelectorAll(".gifArea");
 
-        for (i = 0; i < 5; i++) {
-        gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
-      }
-    })
-    
-}
+      // displays gifs to the page
+      for (i = 0; i < app.chosenGifs.length; i++) {
+        gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
+      };
+    });
+};
 
 // app.activity = (temperature) => {
 //   fetch(`http://www.boredapi.com/api/activity?accessibility`+temperature)
@@ -174,8 +255,7 @@ app.retrieveGif = (iconPhrase) => {
 
 
 app.init = () => {
-  app.getWeather();
-
+  app.locationSubmission();
 }
 
 app.init()
