@@ -8,6 +8,8 @@ app.randomizer = (array) => {
 }
 
 // variables to use for api call: accuweather
+
+// EXTRA API KEYS, CALLS LIMITED TO 50 PER DAY. COMMENT IN/OUT AS NEEDED
 // app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
 // app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
@@ -209,6 +211,8 @@ app.displayForecast = (arrayFromWeather) => {
 }
 
 
+
+
 // giphy api call
 app.giphyApiKey = "bT4cKp5t3W32Z0y3nvvnDyW6I3neAsH2"
 app.retrieveGif = (iconPhrase) => {
@@ -217,7 +221,7 @@ app.retrieveGif = (iconPhrase) => {
       return response.json();
     })
     .then((gifArray) => {
-      const obtainedGifs = gifArray.data
+      const obtainedGifs = gifArray.data;
       // randomizes returned gifs
       app.chosenGifs.push(app.randomizer(obtainedGifs));
       
@@ -225,11 +229,11 @@ app.retrieveGif = (iconPhrase) => {
       const gifContainers = document.querySelectorAll(".gifArea");
 
       // displays gifs to the page
-      for (i = 0; i < 5; i++) {
-        gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
-      }
-    })
-}
+      for (i = 0; i < app.chosenGifs.length; i++) {
+        gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
+      };
+    });
+};
 
 
 
