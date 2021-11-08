@@ -38,9 +38,6 @@ main {
 }
 
 
-
-
-
 .weatherColumn {
     background-image: linear-gradient($darkGray, $blue2);
     border-radius: 20px;
@@ -78,6 +75,10 @@ main {
     animation: AnimationName 33s ease infinite;
 }    
 
+button {
+    margin: 0 auto;
+}
+
 
 
 @media (max-width: 768px) {
@@ -93,7 +94,6 @@ main {
         margin-bottom: 2%;
         .gifArea {
             max-width: 20%;
-            height: 100%;
         }
     }
     
@@ -102,7 +102,5 @@ main {
         align-items: center;
         justify-content: space-between;
     }
-
-
 
 }

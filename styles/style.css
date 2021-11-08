@@ -429,6 +429,10 @@ main {
   animation: AnimationName 33s ease infinite;
 }
 
+button {
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   main {
     -webkit-box-orient: vertical;
@@ -446,7 +450,6 @@ main {
   }
   .weatherColumn .gifArea {
     max-width: 20%;
-    height: 100%;
   }
 
   .weatherWrapper {

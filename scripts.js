@@ -147,12 +147,30 @@ app.retrieveGif = (iconPhrase) => {
 
       const gifContainers = document.querySelectorAll(".gifArea");
 
-      for (i = 0; i < 5; i++) {
+        for (i = 0; i < 5; i++) {
         gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
       }
     })
+    
 }
 
+// app.activity = (temperature) => {
+//   fetch(`http://www.boredapi.com/api/activity?accessibility`+temperature)
+//   .then(function (response) {
+//       return response.json();
+//   })
+//   .then((activity) => {
+//       console.log(activity)
+//   })
+// }
+
+  
+
+// app.init = () => {
+//   num = Math.floor()
+//   app.activity(num);
+//   console.log(num);
+// }
 
 
 app.init = () => {
