@@ -73,6 +73,9 @@ app.getWeather = (location) => {
     })
 }
 
+
+
+
 // Empty arrays for daily objects
 app.date = [];
 app.dayIconPhraseArray = [];
@@ -95,7 +98,14 @@ app.realTempMin = [];
 app.realTempMax = [];
 app.windSpeed = [];
 
+// creating an array for gifs chosen randomly to be pushed into
+app.chosenGifs = [];
+
+
+
+// displays the weather to the page
 app.displayForecast = (arrayFromWeather) => {
+  // empties arrays before adding values in
   app.date = [];
   app.dayIconPhraseArray = [];
   app.dayRainArray = [];
@@ -117,6 +127,9 @@ app.displayForecast = (arrayFromWeather) => {
   app.realTempMax = [];
   app.windSpeed = [];
 
+  app.chosenGifs = [];
+
+  // pushes returned values to the arrays
   arrayFromWeather.forEach((dayWeather) => {
     const dayPhrase = dayWeather.Day.IconPhrase
     app.date.push(dayWeather.Date.slice(0, 10));
@@ -194,8 +207,7 @@ app.displayForecast = (arrayFromWeather) => {
 
   })
 }
-// creating an array for gifs chosen randomly to be pushed into
-app.chosenGifs = [];
+
 
 // giphy api call
 app.giphyApiKey = "bT4cKp5t3W32Z0y3nvvnDyW6I3neAsH2"
@@ -206,12 +218,13 @@ app.retrieveGif = (iconPhrase) => {
     })
     .then((gifArray) => {
       const obtainedGifs = gifArray.data
-
-      // Querying the DOM for the GIF container
+      // randomizes returned gifs
       app.chosenGifs.push(app.randomizer(obtainedGifs));
-
+      
+      // Querying the DOM for the GIF container
       const gifContainers = document.querySelectorAll(".gifArea");
 
+      // displays gifs to the page
       for (i = 0; i < 5; i++) {
         gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`
       }
