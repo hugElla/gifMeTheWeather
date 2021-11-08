@@ -374,28 +374,27 @@ h1, h2, h3 {
   text-align: center;
 }
 
+img {
+  display: block;
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.weatherWrapper, .footerWrapper {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .weatherColumn {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#9e9c9c), to(#8093f11f));
-  background-image: linear-gradient(#9e9c9c, #8093f11f);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#777c9b), to(#8093f11f));
+  background-image: linear-gradient(#777c9b, #8093f11f);
   border-radius: 20px;
   height: 100%;
   width: 100%;
@@ -404,7 +403,6 @@ main {
 }
 .weatherColumn .weatherWrapper {
   width: 95%;
-  margin: 0 auto;
 }
 .weatherColumn .gifArea {
   height: 150px;
@@ -419,7 +417,7 @@ main {
 }
 
 .activity {
-  background-color: rebeccapurple;
+  background-color: rgba(102, 51, 153, 0.363);
   height: 100px;
 }
 
@@ -429,4 +427,37 @@ main {
   background-size: 600% 600%;
   -webkit-animation: AnimationName 33s ease infinite;
   animation: AnimationName 33s ease infinite;
+}
+
+@media (max-width: 768px) {
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .weatherColumn {
+    background-image: -webkit-gradient(linear, left top, right top, from(#777c9b), to(#8093f11f));
+    background-image: linear-gradient(to right, #777c9b, #8093f11f);
+    max-width: none;
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  .weatherColumn .gifArea {
+    max-width: 20%;
+    height: 100%;
+  }
+
+  .weatherWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }

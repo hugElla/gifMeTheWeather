@@ -20,22 +20,29 @@ h1, h2, h3 {
     text-align: center;
 }
 
-
+img {
+    display: block;
+}
 
 main {
     // display: grid;
     // grid-template-columns: auto auto auto auto auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }    
+
+
+.weatherWrapper, .footerWrapper {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
 
 
 
 .weatherColumn {
-    background-image: linear-gradient($gray, $blue2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background-image: linear-gradient($darkGray, $blue2);
     border-radius: 20px;
     height: 100%;
     width: 100%;
@@ -43,7 +50,6 @@ main {
     margin: 0 1%;
     .weatherWrapper {
         width: 95%;
-        margin: 0 auto;
     }
     .gifArea {
         height: 150px;
@@ -59,7 +65,7 @@ main {
 }    
 
 .activity {
-    background-color: rebeccapurple;
+    background-color: rgba(102, 51, 153, 0.363);
     height: 100px;
 }    
 
@@ -74,4 +80,29 @@ main {
 
 
 
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
 
+    
+    .weatherColumn {
+        background-image: linear-gradient(to right, $darkGray, $blue2);
+        max-width: none;
+        width: 100%;
+        margin-bottom: 2%;
+        .gifArea {
+            max-width: 20%;
+            height: 100%;
+        }
+    }
+    
+    .weatherWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+
+}

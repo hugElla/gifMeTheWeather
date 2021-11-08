@@ -3,7 +3,7 @@ const app = {}
 
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
-  const randomIndex = Math.floor(Math.random() * 8);
+  const randomIndex = Math.floor(Math.random() * 7);
   return array[randomIndex];
 }
 
@@ -155,10 +155,9 @@ app.retrieveGif = (iconPhrase) => {
 
 
 
-
-
 app.init = () => {
   app.getWeather();
+
 }
 
 app.init()
