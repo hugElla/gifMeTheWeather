@@ -24,7 +24,12 @@ img {
     display: block;
 }
 
-main {
+header h1{
+  margin-top: 0;
+  padding-top: 3%;
+}
+
+.weatherBody{
     // display: grid;
     // grid-template-columns: auto auto auto auto auto;
     display: flex;
@@ -66,7 +71,7 @@ main {
     height: 100px;
 }    
 
-.weatherBody{
+.weatherPage{
     background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
     background-size: 600% 600%;
 
@@ -82,7 +87,7 @@ button {
 
 
 @media (max-width: 768px) {
-    main {
+    .weatherBody {
         flex-direction: column;
     }
 

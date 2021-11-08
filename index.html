@@ -5,29 +5,245 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>weather baby</title>
+  <title>weatherrrr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/jpg"
+    href="https://pbs.twimg.com/profile_images/3546194034/a894f7828725c24b39cc7ebf10db2c6e.jpeg">
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body class="indexBody">
+<body>
 
-  <div class="mainBox">
-    <main>
+  <div class="indexBody indexShow">
+    <div class="mainBox">
+      <main>
+        <h1><span class="gifHeading">GIF</span> me the weather</h1>
+        <form action="" name=locationForm>
+          <input type="text" name="locationInput" class="locationInput" id="locationInput"
+            placeholder="Enter a city and country">
+          <label for="locationInput" class="srOnly">Enter a city and country</label>
+          <button class="letsGo">Let's go!</button>
+        </form>
+      </main>
+      <footer>
+        <p>Created at <a href="https://junocollege.com/">Juno College of Technology</a></p>
+      </footer>
+    </div>
+    <!-- /mainBox -->
+  </div>
+  <!-- /indexBody -->
+
+  <div class="weatherPage hide">
+    <header>
       <h1><span class="gifHeading">GIF</span> me the weather</h1>
-      <form action="" name=locationForm>
-        <input type="text" name="locationInput" class="locationInput" id="locationInput" placeholder="Enter a city and country">
+      <h2>Here is the forecast for <span>Current city</span></h2>
+      <form action="" name="locationForm" id="locationForm">
+        <input type="text" name="locationInput" class="locationInput" id="locationInput"
+          placeholder="Enter a city and country">
         <label for="locationInput" class="srOnly">Enter a city and country</label>
         <button class="letsGo">Let's go!</button>
       </form>
+    </header>
+
+
+
+
+    <main>
+
+      <div class="weatherBody">
+        <section class="weatherColumn">
+          <div class="weatherWrapper">
+            <div class="dates">
+              <p class="dateName">DateName</p>
+              <h3>Date</h3>
+            </div>
+            <div class="gifArea">
+              <!-- GIF goes in here -->
+            </div>
+            <div class="day">
+              <h4 class="dayIconPhrase">Day Icon Phrase</h4>
+              <p class="dayRain">Day rain</p>
+              <p class="daySnow">Day Snow</p>
+              <p class="dayIce">Day Ice</p>
+              <p class="dayWind">Day Wind</p>
+            </div>
+            <div class="night">
+              <h4 class="nightIconPhrase">Night IconPhrase</h4>
+              <p class="nightRain">Night Rain</p>
+              <p class="nightSnow">Night snow</p>
+              <p class="nightIce">Night Ice</p>
+              <p class="nightWind">Night Wind</p>
+            </div>
+            <div class="tempMax">
+              <p class="temperatureMax">Temp Max</p>
+              <p class="feelsMax">Feels Max</p>
+            </div>
+            <div class="tempMin">
+              <p class="temperatureMin">Temp Min</p>
+              <p class="feelsMin">Feels Min</p>
+            </div>
+            <div class="activity"></div>
+          </div>
+        </section>
+
+
+        <section class="weatherColumn">
+          <div class="weatherWrapper">
+            <div class="dates">
+              <p class="dateName">DateName</p>
+              <h3>Date</h3>
+            </div>
+            <div class="gifArea">
+              <!-- GIF goes in here -->
+            </div>
+            <div class="day">
+              <h4 class="dayIconPhrase">Day Icon Phrase</h4>
+              <p class="dayRain">Day rain</p>
+              <p class="daySnow">Day Snow</p>
+              <p class="dayIce">Day Ice</p>
+              <p class="dayWind">Day Wind</p>
+            </div>
+            <div class="night">
+              <h4 class="nightIconPhrase">Night IconPhrase</h4>
+              <p class="nightRain">Night Rain</p>
+              <p class="nightSnow">Night snow</p>
+              <p class="nightIce">Night Ice</p>
+              <p class="nightWind">Night Wind</p>
+            </div>
+            <div class="tempMax">
+              <p class="temperatureMax">Temp Max</p>
+              <p class="feelsMax">Feels Max</p>
+            </div>
+            <div class="tempMin">
+              <p class="temperatureMin">Temp Min</p>
+              <p class="feelsMin">Feels Min</p>
+            </div>
+            <div class="activity"></div>
+          </div>
+        </section>
+
+
+        <section class="weatherColumn">
+          <div class="weatherWrapper">
+            <div class="dates">
+              <p class="dateName">DateName</p>
+              <h3>Date</h3>
+            </div>
+            <div class="gifArea">
+              <!-- GIF goes in here -->
+            </div>
+            <div class="day">
+              <h4 class="dayIconPhrase">Day Icon Phrase</h4>
+              <p class="dayRain">Day rain</p>
+              <p class="daySnow">Day Snow</p>
+              <p class="dayIce">Day Ice</p>
+              <p class="dayWind">Day Wind</p>
+            </div>
+            <div class="night">
+              <h4 class="nightIconPhrase">Night IconPhrase</h4>
+              <p class="nightRain">Night Rain</p>
+              <p class="nightSnow">Night snow</p>
+              <p class="nightIce">Night Ice</p>
+              <p class="nightWind">Night Wind</p>
+            </div>
+            <div class="tempMax">
+              <p class="temperatureMax">Temp Max</p>
+              <p class="feelsMax">Feels Max</p>
+            </div>
+            <div class="tempMin">
+              <p class="temperatureMin">Temp Min</p>
+              <p class="feelsMin">Feels Min</p>
+            </div>
+            <div class="activity"></div>
+          </div>
+        </section>
+
+
+        <section class="weatherColumn">
+          <div class="weatherWrapper">
+            <div class="dates">
+              <p class="dateName">DateName</p>
+              <h3>Date</h3>
+            </div>
+            <div class="gifArea">
+              <!-- GIF goes in here -->
+            </div>
+            <div class="day">
+              <h4 class="dayIconPhrase">Day Icon Phrase</h4>
+              <p class="dayRain">Day rain</p>
+              <p class="daySnow">Day Snow</p>
+              <p class="dayIce">Day Ice</p>
+              <p class="dayWind">Day Wind</p>
+            </div>
+            <div class="night">
+              <h4 class="nightIconPhrase">Night IconPhrase</h4>
+              <p class="nightRain">Night Rain</p>
+              <p class="nightSnow">Night snow</p>
+              <p class="nightIce">Night Ice</p>
+              <p class="nightWind">Night Wind</p>
+            </div>
+            <div class="tempMax">
+              <p class="temperatureMax">Temp Max</p>
+              <p class="feelsMax">Feels Max</p>
+            </div>
+            <div class="tempMin">
+              <p class="temperatureMin">Temp Min</p>
+              <p class="feelsMin">Feels Min</p>
+            </div>
+            <div class="activity"></div>
+          </div>
+        </section>
+
+
+        <section class="weatherColumn">
+          <div class="weatherWrapper">
+            <div class="dates">
+              <p class="dateName">DateName</p>
+              <h3>Date</h3>
+            </div>
+            <div class="gifArea">
+              <!-- GIF goes in here -->
+            </div>
+            <div class="day">
+              <h4 class="dayIconPhrase">Day Icon Phrase</h4>
+              <p class="dayRain">Day rain</p>
+              <p class="daySnow">Day Snow</p>
+              <p class="dayIce">Day Ice</p>
+              <p class="dayWind">Day Wind</p>
+            </div>
+            <div class="night">
+              <h4 class="nightIconPhrase">Night IconPhrase</h4>
+              <p class="nightRain">Night Rain</p>
+              <p class="nightSnow">Night snow</p>
+              <p class="nightIce">Night Ice</p>
+              <p class="nightWind">Night Wind</p>
+            </div>
+            <div class="tempMax">
+              <p class="temperatureMax">Temp Max</p>
+              <p class="feelsMax">Feels Max</p>
+            </div>
+            <div class="tempMin">
+              <p class="temperatureMin">Temp Min</p>
+              <p class="feelsMin">Feels Min</p>
+            </div>
+            <div class="activity"></div>
+          </div>
+        </section>
+      </div>
+      <!-- /weatherBody -->
+
     </main>
+
     <footer>
-      <p>Created at <a href="https://junocollege.com/">Juno College of Technology</a></p>
+      <a href="#locationForm" class="nextCity letsGo">Next City!</a>
+      <div class="footerWrapper">
+        <p>Created at <a href="https://junocollege.com/"> Juno College of Technology</a></p>
+      </div>
     </footer>
   </div>
-
+  <!-- /weatherPage -->
 
   <script src="./scripts.js"></script>
 </body>

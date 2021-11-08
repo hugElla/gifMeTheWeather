@@ -21,15 +21,25 @@ app.apiKey = "6TK8aMoezoeYGHIAiTiWck1u7uaxPARF";
 // takes user inputted city to pass to the apis
 app.locationSubmission = () => {
   // when the button is clicked:
-  const locationQ = document.querySelector('button');
-  locationQ.addEventListener('click', (event) => {
+  const locationQ = document.querySelector("button");
+  locationQ.addEventListener("click", (event) => {
     // prevents refresh
     event.preventDefault();
 
     // gets the name of location and passes it to getLocation
-    app.locationName = document.getElementById('locationInput').value;
+    app.locationName = document.getElementById("locationInput").value;
     app.getLocation(app.locationName);
 
+    // toggles the classes on index and weather
+    const indexPage = document.querySelector(".indexBody");
+    const weatherPage = document.querySelector('.weatherPage')
+
+    // toggles classes to show and hide the correct pages
+    indexPage.classList.toggle("indexShow");
+    indexPage.classList.toggle("hide");
+    weatherPage.classList.toggle("show");
+    weatherPage.classList.toggle("hide");
+    
     // clears the form
     app.form = document.querySelector("form");
     app.form.reset();
