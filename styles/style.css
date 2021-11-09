@@ -433,6 +433,10 @@ button {
   margin: 0 auto;
 }
 
+.hideWeather {
+  display: none;
+}
+
 @media (max-width: 768px) {
   main {
     -webkit-box-orient: vertical;
