@@ -35,8 +35,8 @@ app.locationSubmission = () => {
     const weatherPage = document.querySelector('.weatherPage')
 
     // toggles classes to show and hide the correct pages
-    indexPage.classList.toggle("indexShow");
-    indexPage.classList.toggle("hide");
+    // indexPage.classList.toggle("indexShow");
+    // indexPage.classList.toggle("hide");
     weatherPage.classList.toggle("show");
     weatherPage.classList.toggle("hide");
     
@@ -222,30 +222,37 @@ app.displayForecast = (arrayFromWeather) => {
   dayRainContainers.forEach((day) => {
     if(day.innerText == "Rain: 0mm"){
       day.classList.add("hideWeather");
+      day.setAttribute("aria-hidden", "true");
+      console.log(day);
     }
   })
   daySnowContainers.forEach((day) => {
     if(day.innerText == "Snow: 0cm"){
       day.classList.add("hideWeather");
+      day.setAttribute("aria-hidden", "true");
     }
   })
   dayIceContainers.forEach((day) => {
     if(day.innerText == "Ice: 0mm"){
       day.classList.add("hideWeather");
+      day.setAttribute("aria-hidden", "true");
     }
   })
   nightRainContainers.forEach((day) => {
     if(day.innerText == "Rain: 0mm"){
       day.classList.add("hideWeather");
+      day.setAttribute("aria-hidden", "true");
     }
   })
   nightSnowContainers.forEach((day) => {
     if(day.innerText == "Snow: 0cm"){
       day.classList.add("hideWeather");
+      day.setAttribute("aria-hidden", "true");
     }
   })
   nightIceContainers.forEach((day) => {
     if(day.innerText == "Ice: 0mm"){
+      day.setAttribute("aria-hidden", "true");
       day.classList.add("hideWeather");
     }
   })
@@ -273,6 +280,8 @@ app.retrieveGif = (iconPhrase) => {
       // Querying the DOM for the GIF container
       const gifContainers = document.querySelectorAll(".gifArea");
 
+      console.log(app.chosenGifs);
+
       // displays gifs to the page
       for (i = 0; i < app.chosenGifs.length; i++) {
         gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
@@ -291,7 +300,6 @@ app.retrieveGif = (iconPhrase) => {
 // }
 
   
-
 // app.init = () => {
 //   num = Math.floor()
 //   app.activity(num);
