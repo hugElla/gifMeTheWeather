@@ -362,14 +362,16 @@ div.indexShow {
   padding: 15px;
   border: none;
   border-radius: 20px;
-  -webkit-box-shadow: 0px 0px 20px rgba(250, 255, 129, 0.5);
-          box-shadow: 0px 0px 20px rgba(250, 255, 129, 0.5);
+  -webkit-box-shadow: 0px 0px 20px rgba(250, 255, 129, 0.7);
+          box-shadow: 0px 0px 20px rgba(250, 255, 129, 0.7);
 }
 
 .locationInput:focus,
 .locationInput2:focus {
   outline: none;
   background-color: #faff81;
+  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+          box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
 }
 
 .letsGo,

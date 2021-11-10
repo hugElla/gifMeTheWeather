@@ -49,13 +49,14 @@
   padding: 15px;
   border: none;
   border-radius: 20px;
-  box-shadow: 0px 0px 20px rgba($color: $yellow, $alpha: 0.5);
+  box-shadow: 0px 0px 20px rgba($color: $yellow, $alpha: 0.7);
 }
 
 .locationInput:focus,
 .locationInput2:focus{
   outline:none;
   background-color: $yellow;
+  box-shadow: 0px 0px 20px rgba($color: white, $alpha: 0.7);
 }
 
 .letsGo,
