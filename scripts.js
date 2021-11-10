@@ -13,36 +13,56 @@ app.randomizer = (array) => {
 // app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
 // app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
-// app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
-app.apiKey = "6TK8aMoezoeYGHIAiTiWck1u7uaxPARF";
+app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
+// app.apiKey = "6TK8aMoezoeYGHIAiTiWck1u7uaxPARF";
 
 
 
 // takes user inputted city to pass to the apis
 app.locationSubmission = () => {
   // when the button is clicked:
-  const locationQ = document.querySelector("button");
+  const locationQ = document.querySelector(".nextCityButton");
   locationQ.addEventListener("click", (event) => {
     // prevents refresh
     event.preventDefault();
 
     // gets the name of location and passes it to getLocation
-    app.locationName = document.getElementById("locationInput").value;
-    app.getLocation(app.locationName);
+    const locationName = document.getElementById("locationInput2");
+    app.getLocation(locationName.value);
+
+    // clears the form
+    locationName.value = "";
+
+  });
+};
+
+
+
+
+// the same as locationSubmission() but for the button on the splash page. shows weather, hides splash page
+app.showHide = () => {
+
+  const firstButton = document.querySelector(".letsGo");
+  firstButton.addEventListener("click", (event) => {
+    // prevents refresh
+    event.preventDefault();
+
+    // gets the name of location and passes it to getLocation
+    const locationName = document.getElementById("locationInput");
+    app.getLocation(locationName.value);
 
     // toggles the classes on index and weather
     const indexPage = document.querySelector(".indexBody");
-    const weatherPage = document.querySelector('.weatherPage')
+    const weatherPage = document.querySelector(".weatherPage");
 
     // toggles classes to show and hide the correct pages
-    // indexPage.classList.toggle("indexShow");
-    // indexPage.classList.toggle("hide");
+    indexPage.classList.toggle("indexShow");
+    indexPage.classList.toggle("hide");
     weatherPage.classList.toggle("show");
     weatherPage.classList.toggle("hide");
     
     // clears the form
-    app.form = document.querySelector("form");
-    app.form.reset();
+    locationName.value = "";
   });
 };
 
@@ -60,7 +80,7 @@ app.getLocation = (locationQuery) => {
       // updates the h2 span to display location
       const city = data[0].EnglishName;
       const country = data[0].Country.EnglishName;
-      const displayLocation = document.querySelector('h2 span');
+      const displayLocation = document.querySelector("h2 span");
       displayLocation.textContent = `${city}, ${country}.`
 
       // passes location id to getWeather
@@ -180,33 +200,33 @@ app.displayForecast = (arrayFromWeather) => {
     app.nightRainArray.push(dayWeather.Night.Rain.Value + dayWeather.Night.Rain.Unit);
     app.nightSnowArray.push(dayWeather.Night.Snow.Value + dayWeather.Night.Snow.Unit);
     app.nightIceArray.push(dayWeather.Night.Ice.Value + dayWeather.Night.Ice.Unit);
-    
+
     app.nightWindArray.push(dayWeather.Night.Wind.Speed.Value + dayWeather.Day.Wind.Speed.Unit);
 
     app.realTempMax.push(Math.round(dayWeather.Temperature.Maximum.Value) + "°" + dayWeather.Temperature.Maximum.Unit);
     app.realTempMin.push(Math.round(dayWeather.Temperature.Minimum.Value) + "°" + dayWeather.Temperature.Minimum.Unit);
     app.feelsLikeMax.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value) + "°" + dayWeather.RealFeelTemperature.Maximum.Unit);
     app.feelsLikeMin.push(Math.round(dayWeather.RealFeelTemperature.Minimum.Value) + "°" + dayWeather.RealFeelTemperature.Minimum.Unit);
-    
+
     // send the weather forecast for the day to the GIPHY API
-    app.retrieveGif(dayPhrase);  
-   
+    app.retrieveGif(dayPhrase);
+
   })
 
 
-  
+
   for (i = 0; i < 5; i++) {
     dateContainers[i].innerText = `Date: ${app.date[i]}`;
     dayIconPhraseContainers[i].innerText = `Day: ${app.dayIconPhraseArray[i]}`
-      
-      dayRainContainers[i].innerText = `Rain: ${app.dayRainArray[i]}`
-      daySnowContainers[i].innerText = `Snow: ${app.daySnowArray[i]}`
-      dayIceContainers[i].innerText = `Ice: ${app.dayIceArray[i]}`
-  
+
+    dayRainContainers[i].innerText = `Rain: ${app.dayRainArray[i]}`
+    daySnowContainers[i].innerText = `Snow: ${app.daySnowArray[i]}`
+    dayIceContainers[i].innerText = `Ice: ${app.dayIceArray[i]}`
+
     dayWindContainers[i].innerText = `Wind: ${app.dayWindArray[i]}`
-    
+
     nightIconPhraseContainers[i].innerText = `Night: ${app.nightIconPhraseArray[i]}`
-    
+
     nightRainContainers[i].innerText = `Rain: ${app.nightRainArray[i]}`
     nightSnowContainers[i].innerText = `Snow: ${app.nightSnowArray[i]}`
     nightIceContainers[i].innerText = `Ice: ${app.nightIceArray[i]}`
@@ -217,41 +237,40 @@ app.displayForecast = (arrayFromWeather) => {
     feelMaxContainers[i].innerText = `Feels like high: ${app.feelsLikeMax[i]}`
     feelMinContainers[i].innerText = `Feels like low: ${app.feelsLikeMin[i]}`
   }
-  
+
   // Hiding the 0 precipitation divs
   dayRainContainers.forEach((day) => {
-    if(day.innerText == "Rain: 0mm"){
+    if (day.innerText == "Rain: 0mm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
-      console.log(day);
     }
   })
   daySnowContainers.forEach((day) => {
-    if(day.innerText == "Snow: 0cm"){
+    if (day.innerText == "Snow: 0cm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   dayIceContainers.forEach((day) => {
-    if(day.innerText == "Ice: 0mm"){
+    if (day.innerText == "Ice: 0mm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   nightRainContainers.forEach((day) => {
-    if(day.innerText == "Rain: 0mm"){
+    if (day.innerText == "Rain: 0mm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   nightSnowContainers.forEach((day) => {
-    if(day.innerText == "Snow: 0cm"){
+    if (day.innerText == "Snow: 0cm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   nightIceContainers.forEach((day) => {
-    if(day.innerText == "Ice: 0mm"){
+    if (day.innerText == "Ice: 0mm") {
       day.setAttribute("aria-hidden", "true");
       day.classList.add("hideWeather");
     }
@@ -273,14 +292,12 @@ app.retrieveGif = (iconPhrase) => {
     })
     .then((gifArray) => {
       const obtainedGifs = gifArray.data;
-      
+
       // obtains ransom gif from gif array
       app.chosenGifs.push(app.randomizer(obtainedGifs));
-      
+
       // Querying the DOM for the GIF container
       const gifContainers = document.querySelectorAll(".gifArea");
-
-      console.log(app.chosenGifs);
 
       // displays gifs to the page
       for (i = 0; i < app.chosenGifs.length; i++) {
@@ -299,7 +316,7 @@ app.retrieveGif = (iconPhrase) => {
 //   })
 // }
 
-  
+
 // app.init = () => {
 //   num = Math.floor()
 //   app.activity(num);
@@ -309,6 +326,7 @@ app.retrieveGif = (iconPhrase) => {
 
 app.init = () => {
   app.locationSubmission();
+  app.showHide();
 }
 
 app.init()

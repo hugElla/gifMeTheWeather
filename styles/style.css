@@ -334,7 +334,9 @@ div.indexShow {
           align-items: center;
 }
 
-.letsGo {
+.letsGo,
+.nextCity,
+.nextCityButton {
   background-color: #8093f1;
   padding: 10px 20px;
   color: white;
