@@ -3,7 +3,7 @@ const app = {};
 
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
-  const randomIndex = Math.floor(Math.random() * 7);
+  const randomIndex = Math.floor(Math.random() * 1);
   return array[randomIndex];
 }
 
@@ -39,9 +39,6 @@ app.locationSubmission = () => {
 
   });
 };
-
-
-
 
 // the same as locationSubmission() but for the button on the splash page. shows weather, hides splash page
 app.showHide = () => {
@@ -164,7 +161,7 @@ app.windSpeed = [];
 app.chosenGifs = [];
 
 
-const dateContainers = document.querySelectorAll("h3");
+const dateContainers = document.querySelectorAll(".date");
 const dateNameContainers = document.querySelectorAll(".dateName");
 const dayIconPhraseContainers = document.querySelectorAll(".dayIconPhrase");
 const dayRainContainers = document.querySelectorAll(".dayRain");
@@ -327,13 +324,13 @@ app.giphyUrl = "https://api.giphy.com/v1/gifs/search"
   // giphy api call
 app.retrieveGif = (iconPhrase) => {
 
+  console.log(iconPhrase)
   // creating the url
   const url = new URL(`${app.giphyUrl}`);
   url.search = new URLSearchParams({
     q: `weather+sky+nature+${iconPhrase}`,
     api_key: app.giphyApiKey
   });
-
 
   // fetching the data (gifs)
   fetch(url)
