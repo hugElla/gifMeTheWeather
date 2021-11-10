@@ -27,6 +27,36 @@
   }
 }
 
+
+.locationForm,
+.locationForm2{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.locationForm{
+  width: 80%;
+}
+
+.locationInput,
+.locationInput2{
+  font-family: $body-font;
+  font-style: italic;
+  letter-spacing: 1px;
+  height: 50px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+}
+
+.locationInput:focus,
+.locationInput2:focus{
+  outline:none;
+  background-color: $yellow;
+}
+
 .letsGo,
 .nextCity,
 .nextCityButton {
