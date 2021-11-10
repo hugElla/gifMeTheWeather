@@ -1,6 +1,8 @@
 // creating a namespace object
 const app = {};
 
+// this is a comment
+
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
   const randomIndex = Math.floor(Math.random() * 7);
