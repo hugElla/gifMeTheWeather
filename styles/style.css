@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -413,6 +414,14 @@ h1, h2, h3 {
   text-align: center;
 }
 
+p {
+  margin-top: 5px;
+}
+
+h4 {
+  margin-bottom: 10px;
+}
+
 img {
   display: block;
 }
@@ -490,6 +499,40 @@ header h1 {
      object-fit: cover;
   height: 100%;
   width: 100%;
+}
+
+p::before {
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+}
+
+.dayRain::before, .nightRain::before {
+  content: "";
+}
+
+.daySnow::before, .nightSnow::before {
+  content: "";
+}
+
+.dayIce::before, .nightIce::before {
+  content: "";
+}
+
+.dayWind::before, .nightWind::before {
+  content: "";
+}
+
+.tempMax, .tempMin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .activity {
