@@ -3,7 +3,7 @@ const app = {};
 
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
-  const randomIndex = Math.floor(Math.random() * 1);
+  const randomIndex = Math.floor(Math.random() * 7);
   return array[randomIndex];
 }
 
@@ -256,7 +256,7 @@ app.displayForecast = (arrayFromWeather) => {
 
   for (i = 0; i < 5; i++) {
     dateNameContainers[i].innerText = `${app.weekdays[today + i]}`
-    dateContainers[i].innerText = `Date: ${app.date[i]}`;
+    dateContainers[i].innerText = `${app.date[i]}`;
     dayIconPhraseContainers[i].innerText = `Day: ${app.dayIconPhraseArray[i]}`
 
     dayRainContainers[i].innerText = `Rain: ${app.dayRainArray[i]}`
