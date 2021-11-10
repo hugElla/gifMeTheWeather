@@ -87,8 +87,12 @@ app.getLocation = (locationQuery) => {
 
   // fetching data (location id + name + country)
   fetch(url)
-    .then(function (response) {
-      return response.json();
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Please enter a valid city.')
+      }
     })
     .then((data) => {
       // updates the h2 span to display location
@@ -99,7 +103,12 @@ app.getLocation = (locationQuery) => {
 
       // passes location id to getWeather
       app.getWeather(data[0].Key)
-    });
+    })
+    .catch((error) => {
+      if(error) {
+        alert(error);
+      }
+    })
 };
 
 
