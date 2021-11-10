@@ -3,7 +3,7 @@ const app = {};
 
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
-  const randomIndex = Math.floor(Math.random() * 7);
+  const randomIndex = Math.floor(Math.random() * 1);
   return array[randomIndex];
 }
 
@@ -91,7 +91,7 @@ app.getLocation = (locationQuery) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error('Please enter a valid city.')
+        throw new Error(response.statusText)
       }
     })
     .then((data) => {
@@ -106,7 +106,7 @@ app.getLocation = (locationQuery) => {
     })
     .catch((error) => {
       if(error) {
-        alert(error);
+        alert('Please enter a valid city.');
       }
     })
 };
@@ -139,9 +139,6 @@ app.getWeather = (location) => {
     })
 }
 
-//Weekday name array
-  // goes to Wednesday again as it iterates +5 to the array, on Saturday going to array[12]
-app.weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"]
 
 
 
@@ -174,7 +171,6 @@ app.chosenGifs = [];
 
 
 const dateContainers = document.querySelectorAll("h3");
-const dateNameContainers = document.querySelectorAll(".dateName");
 const dayIconPhraseContainers = document.querySelectorAll(".dayIconPhrase");
 const dayRainContainers = document.querySelectorAll(".dayRain");
 const daySnowContainers = document.querySelectorAll(".daySnow");
@@ -241,82 +237,76 @@ app.displayForecast = (arrayFromWeather) => {
 
     app.nightWindArray.push(dayWeather.Night.Wind.Speed.Value + dayWeather.Day.Wind.Speed.Unit);
 
-    app.realTempMax.push(Math.round(dayWeather.Temperature.Maximum.Value) + "° " + dayWeather.Temperature.Maximum.Unit);
-    app.realTempMin.push(Math.round(dayWeather.Temperature.Minimum.Value) + "° " + dayWeather.Temperature.Minimum.Unit);
-    app.feelsLikeMax.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value) + "° " + dayWeather.RealFeelTemperature.Maximum.Unit);
-    app.feelsLikeMin.push(Math.round(dayWeather.RealFeelTemperature.Minimum.Value) + "° " + dayWeather.RealFeelTemperature.Minimum.Unit);
-    
+    app.realTempMax.push(Math.round(dayWeather.Temperature.Maximum.Value) + "°" + dayWeather.Temperature.Maximum.Unit);
+    app.realTempMin.push(Math.round(dayWeather.Temperature.Minimum.Value) + "°" + dayWeather.Temperature.Minimum.Unit);
+    app.feelsLikeMax.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value) + "°" + dayWeather.RealFeelTemperature.Maximum.Unit);
+    app.feelsLikeMin.push(Math.round(dayWeather.RealFeelTemperature.Minimum.Value) + "°" + dayWeather.RealFeelTemperature.Minimum.Unit);
+
     // send the weather forecast for the day to the GIPHY API
     app.retrieveGif(dayPhrase);
 
   })
 
 
-  // gets today's weekday as a numerical value
-  const date = new Date();
-  const today = date.getDay()
-  console.log(today)
-
 
   for (i = 0; i < 5; i++) {
-    dateNameContainers[i].innerText = `${app.weekdays[today + i]}`
-    dateContainers[i].innerText = `${app.date[i]}`;
+    dateContainers[i].innerText = `Date: ${app.date[i]}`;
     dayIconPhraseContainers[i].innerText = `Day: ${app.dayIconPhraseArray[i]}`
-      
-      dayRainContainers[i].innerText = `${app.dayRainArray[i]}`
-      daySnowContainers[i].innerText = `${app.daySnowArray[i]}`
-      dayIceContainers[i].innerText = `${app.dayIceArray[i]}`
-  
-    dayWindContainers[i].innerText = `${app.dayWindArray[i]}`
-    
-    nightIconPhraseContainers[i].innerText = `Night: ${app.nightIconPhraseArray[i]}`
-    
-    nightRainContainers[i].innerText = `${app.nightRainArray[i]}`
-    nightSnowContainers[i].innerText = `${app.nightSnowArray[i]}`
-    nightIceContainers[i].innerText = `${app.nightIceArray[i]}`
-    nightWindContainers[i].innerText = `${app.nightWindArray[i]}`
 
-    tempMaxContainers[i].innerText = `High: ${app.realTempMax[i]} `
-    feelMaxContainers[i].innerText = `/ ${app.feelsLikeMax[i]}`
-    tempMinContainers[i].innerText = `Low: ${app.realTempMin[i]} `
-    feelMinContainers[i].innerText = `/ ${app.feelsLikeMin[i]}`
+    dayRainContainers[i].innerText = `Rain: ${app.dayRainArray[i]}`
+    daySnowContainers[i].innerText = `Snow: ${app.daySnowArray[i]}`
+    dayIceContainers[i].innerText = `Ice: ${app.dayIceArray[i]}`
+
+    dayWindContainers[i].innerText = `Wind: ${app.dayWindArray[i]}`
+
+    nightIconPhraseContainers[i].innerText = `Night: ${app.nightIconPhraseArray[i]}`
+
+    nightRainContainers[i].innerText = `Rain: ${app.nightRainArray[i]}`
+    nightSnowContainers[i].innerText = `Snow: ${app.nightSnowArray[i]}`
+    nightIceContainers[i].innerText = `Ice: ${app.nightIceArray[i]}`
+    nightWindContainers[i].innerText = `Wind: ${app.nightWindArray[i]}`
+
+    tempMaxContainers[i].innerText = `High: ${app.realTempMax[i]}`
+    tempMinContainers[i].innerText = `Low: ${app.realTempMin[i]}`
+    feelMaxContainers[i].innerText = `Feels like high: ${app.feelsLikeMax[i]}`
+    feelMinContainers[i].innerText = `Feels like low: ${app.feelsLikeMin[i]}`
   }
 
 
 
   // Hiding the 0 precipitation divs
   dayRainContainers.forEach((day) => {
-    if(day.innerText == "0mm"){
+    if (day.innerText == "Rain: 0mm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   daySnowContainers.forEach((day) => {
-    if(day.innerText == "0cm"){
+    if (day.innerText == "Snow: 0cm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   dayIceContainers.forEach((day) => {
-    if(day.innerText == "0mm"){
+    if (day.innerText == "Ice: 0mm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   nightRainContainers.forEach((day) => {
-    if(day.innerText == "0mm"){
+    if (day.innerText == "Rain: 0mm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   nightSnowContainers.forEach((day) => {
-    if(day.innerText == "0cm"){
+    if (day.innerText == "Snow: 0cm") {
       day.classList.add("hideWeather");
       day.setAttribute("aria-hidden", "true");
     }
   })
   nightIceContainers.forEach((day) => {
-    if(day.innerText == "0mm"){
+    if (day.innerText == "Ice: 0mm") {
       day.setAttribute("aria-hidden", "true");
       day.classList.add("hideWeather");
     }
@@ -388,4 +378,4 @@ app.init = () => {
   app.showHide();
 }
 
-app.init(); 
+app.init();
