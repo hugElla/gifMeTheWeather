@@ -1,5 +1,5 @@
 // creating a namespace object
-const app = {}
+const app = {};
 
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
@@ -8,6 +8,9 @@ app.randomizer = (array) => {
 }
 
 // variables to use for api call: accuweather
+app.accuweatherUrl = "https://dataservice.accuweather.com";
+app.locationEndPoint = "/locations/v1/cities/search";
+app.forecastEndPoint = "/forecasts/v1/daily/5day/";
 
 // EXTRA API KEYS, CALLS LIMITED TO 50 PER DAY. COMMENT IN/OUT AS NEEDED
 // app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
@@ -20,6 +23,7 @@ app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
 
 // takes user inputted city to pass to the apis
 app.locationSubmission = () => {
+
   // when the button is clicked:
   const locationQ = document.querySelector(".nextCityButton");
   locationQ.addEventListener("click", (event) => {
@@ -60,7 +64,7 @@ app.showHide = () => {
     indexPage.classList.toggle("hide");
     weatherPage.classList.toggle("show");
     weatherPage.classList.toggle("hide");
-    
+
     // clears the form
     locationName.value = "";
   });
@@ -69,10 +73,20 @@ app.showHide = () => {
 
 
 
-
 // api call to get inputted location
 app.getLocation = (locationQuery) => {
-  fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${app.apiKey}&q=${locationQuery}&language=en-us&details=true`)
+
+  // creating the url
+  const url = new URL(`${app.accuweatherUrl}${app.locationEndPoint}`)
+  url.search = new URLSearchParams({
+    apikey: app.apiKey,
+    q: locationQuery,
+    language: "en-us",
+    details: true
+  })
+
+  // fetching data (location id + name + country)
+  fetch(url)
     .then(function (response) {
       return response.json();
     })
@@ -94,7 +108,18 @@ app.getLocation = (locationQuery) => {
 
 // api call to get weather for inputted location
 app.getWeather = (location) => {
-  fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}?apikey=${app.apiKey}&language=en-us&details=true&metric=true`)
+
+  // creating the url
+  const url = new URL(`${app.accuweatherUrl}${app.forecastEndPoint}${location}`)
+  url.search = new URLSearchParams({
+    apikey: app.apiKey,
+    language: "en-us",
+    details: true,
+    metric: true
+  })
+
+  // fetching the data (forecasts)
+  fetch(url)
     .then(function (response) {
       return response.json();
     })
@@ -238,6 +263,8 @@ app.displayForecast = (arrayFromWeather) => {
     feelMinContainers[i].innerText = `Feels like low: ${app.feelsLikeMin[i]}`
   }
 
+
+
   // Hiding the 0 precipitation divs
   dayRainContainers.forEach((day) => {
     if (day.innerText == "Rain: 0mm") {
@@ -282,11 +309,24 @@ app.displayForecast = (arrayFromWeather) => {
 
 
 
-
-// giphy api call
+// variables to use for giphy api call
 app.giphyApiKey = "bT4cKp5t3W32Z0y3nvvnDyW6I3neAsH2"
+app.giphyUrl = "https://api.giphy.com/v1/gifs/search"
+
+
+  // giphy api call
 app.retrieveGif = (iconPhrase) => {
-  fetch(`https://api.giphy.com/v1/gifs/search?q=weather+sky+nature+` + iconPhrase + `&api_key=${app.giphyApiKey}`)
+
+  // creating the url
+  const url = new URL(`${app.giphyUrl}`);
+  url.search = new URLSearchParams({
+    q: `weather+sky+nature+${iconPhrase}`,
+    api_key: app.giphyApiKey
+  });
+
+
+  // fetching the data (gifs)
+  fetch(url)
     .then(function (response) {
       return response.json();
     })
@@ -329,4 +369,4 @@ app.init = () => {
   app.showHide();
 }
 
-app.init()
+app.init();
