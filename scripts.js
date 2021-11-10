@@ -91,7 +91,7 @@ app.getLocation = (locationQuery) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error(res.statusText)
+        throw new Error('Please enter a valid city.')
       }
     })
     .then((data) => {
@@ -106,7 +106,7 @@ app.getLocation = (locationQuery) => {
     })
     .catch((error) => {
       if(error) {
-        alert('Please enter a valid city.');
+        alert(error);
       }
     })
 };
