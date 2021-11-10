@@ -46,9 +46,14 @@
 };
 
 .letsGo:hover,
-.letsGo:focus{
+.letsGo:focus,
+.nextCity:hover,
+.nextCity:focus,
+.nextCityButton:hover,
+.nextCityButton:focus{
   background-color: white;
   color: $blue;
+  cursor: pointer;
 }
 
 .gifHeading{

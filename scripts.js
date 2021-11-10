@@ -25,8 +25,8 @@ app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
 app.locationSubmission = () => {
 
   // when the button is clicked:
-  const locationQ = document.querySelector(".nextCityButton");
-  locationQ.addEventListener("click", (event) => {
+  const locationQ = document.querySelector(".locationForm2");
+  locationQ.addEventListener("submit", (event) => {
     // prevents refresh
     event.preventDefault();
 
@@ -46,8 +46,8 @@ app.locationSubmission = () => {
 // the same as locationSubmission() but for the button on the splash page. shows weather, hides splash page
 app.showHide = () => {
 
-  const firstButton = document.querySelector(".letsGo");
-  firstButton.addEventListener("click", (event) => {
+  const firstButton = document.querySelector(".locationForm");
+  firstButton.addEventListener("submit", (event) => {
     // prevents refresh
     event.preventDefault();
 

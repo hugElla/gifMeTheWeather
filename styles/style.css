@@ -355,9 +355,14 @@ div.indexShow {
 }
 
 .letsGo:hover,
-.letsGo:focus {
+.letsGo:focus,
+.nextCity:hover,
+.nextCity:focus,
+.nextCityButton:hover,
+.nextCityButton:focus {
   background-color: white;
   color: #8093f1;
+  cursor: pointer;
 }
 
 .gifHeading {
