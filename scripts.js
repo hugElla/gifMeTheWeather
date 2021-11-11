@@ -1,6 +1,8 @@
 // creating a namespace object
 const app = {};
 
+const arrayUrls = []
+
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
   const randomIndex = Math.floor(Math.random() * 8);
@@ -244,16 +246,32 @@ app.displayForecast = (arrayFromWeather) => {
     app.feelsLikeMax.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value) + "° " + dayWeather.RealFeelTemperature.Maximum.Unit);
     app.feelsLikeMin.push(Math.round(dayWeather.RealFeelTemperature.Minimum.Value) + "° " + dayWeather.RealFeelTemperature.Minimum.Unit);
     
-    // send the weather forecast for the day to the GIPHY API
-    app.retrieveGif(dayPhrase);
 
+
+
+    
+    // creating the url
+    // COLIN: creating all 5 in one go and then adding them to an array
+    const url = new URL(`${app.giphyUrl}`);
+    url.search = new URLSearchParams({
+      q: `weather+sky+nature+${dayPhrase}`,
+      api_key: app.giphyApiKey
+    });
+  
+    //COLIN: I added the arrayUrls variable way up on line 4
+    arrayUrls.push(url);
   })
+
+
+
+  // Colin: only call this function once, passing the array or URLS
+  app.retrieveGif(arrayUrls);
+
 
 
   // gets today's weekday as a numerical value
   const date = new Date();
-  const today = date.getDay()
-  console.log(today)
+  const today = date.getDay();
 
 
   for (i = 0; i < 5; i++) {
@@ -324,44 +342,79 @@ app.displayForecast = (arrayFromWeather) => {
 
 
 
-
-
 // variables to use for giphy api call
 app.giphyApiKey = "bT4cKp5t3W32Z0y3nvvnDyW6I3neAsH2"
 app.giphyUrl = "https://api.giphy.com/v1/gifs/search"
 
-
-  // giphy api call
-app.retrieveGif = (iconPhrase) => {
-
-  // creating the url
-  const url = new URL(`${app.giphyUrl}`);
-  url.search = new URLSearchParams({
-    q: `weather+sky+nature+${iconPhrase}`,
-    api_key: app.giphyApiKey
-  });
+// giphy api call 
+// Credit to Colin D'Amelio for helping us make this section and making a gifPromise
+app.retrieveGif = (urls) => {
 
 
-  // fetching the data (gifs)
-  fetch(url)
-    .then(function (response) {
-      return response.json();
+  // map the urls to have all of them fetched, then return the promise objects from that process and save in a new variable
+  const gifPromise = urls.map(url => {
+    return fetch(url)
+      .then(data => {
+        return data.json();
+      })
+  })
+
+  // wait for all 5 promises to resolve and then print them to the screen, in order
+  Promise.all(gifPromise)
+    .then(gif => {
+      gif.forEach(g => {
+        // fetching the data (gifs)
+            const obtainedGifs = g.data;
+
+      
+            // obtains ransom gif from gif array
+            app.chosenGifs.push(app.randomizer(obtainedGifs));
+      
+            // Querying the DOM for the GIF container
+            const gifContainers = document.querySelectorAll(".gifArea");
+      
+            // displays gifs to the page
+            for (i = 0; i < app.chosenGifs.length; i++) {
+              gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
+            };
+      })
     })
-    .then((gifArray) => {
-      const obtainedGifs = gifArray.data;
 
-      // obtains ransom gif from gif array
-      app.chosenGifs.push(app.randomizer(obtainedGifs));
-
-      // Querying the DOM for the GIF container
-      const gifContainers = document.querySelectorAll(".gifArea");
-
-      // displays gifs to the page
-      for (i = 0; i < app.chosenGifs.length; i++) {
-        gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
-      };
-    });
+    arrayUrls.length = 0;
 };
+
+
+//   // giphy api call
+// app.retrieveGif = (iconPhrase) => {
+
+//   // creating the url
+//   const url = new URL(`${app.giphyUrl}`);
+//   url.search = new URLSearchParams({
+//     q: `weather+sky+nature+${iconPhrase}`,
+//     api_key: app.giphyApiKey
+//   });
+
+
+//   // fetching the data (gifs)
+//   fetch(url)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then((gifArray) => {
+//       const obtainedGifs = gifArray.data;
+
+//       // obtains ransom gif from gif array
+//       app.chosenGifs.push(app.randomizer(obtainedGifs));
+
+//       // Querying the DOM for the GIF container
+//       const gifContainers = document.querySelectorAll(".gifArea");
+
+//       // displays gifs to the page
+//       for (i = 0; i < app.chosenGifs.length; i++) {
+//         gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
+//       };
+//     });
+// };
 
 // app.activity = (temperature) => {
 //   fetch(`http://www.boredapi.com/api/activity?accessibility`+temperature)
