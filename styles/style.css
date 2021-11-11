@@ -634,6 +634,10 @@ button {
   .gifArea {
     max-width: 150px;
   }
+
+  footer a {
+    text-align: center;
+  }
 }
 @media (max-width: 500px) {
   h3 {
@@ -645,6 +649,10 @@ button {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .dates {
+    height: 100%;
   }
 
   .gifArea {
