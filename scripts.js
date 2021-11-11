@@ -3,7 +3,7 @@ const app = {};
 
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
-  const randomIndex = Math.floor(Math.random() * 7);
+  const randomIndex = Math.floor(Math.random() * 8);
   return array[randomIndex];
 }
 

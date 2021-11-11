@@ -63,7 +63,7 @@ header h1{
 }    
 
 
-.weatherWrapper, .footerWrapper {
+.weatherWrapper{
     margin: 1% auto;
     text-align: center;
 }
@@ -82,8 +82,6 @@ header h1{
     .gifArea {
         height: 150px;
         width: 100%;
-    // 🚨 placeholder
-        background-color: blue;
     } 
     img {
         object-fit: cover;
@@ -140,6 +138,16 @@ p::before {
     animation: AnimationName 33s ease infinite;
 }    
 
+.activity {
+    margin-top: 10%;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+
 button {
     margin: 0 auto;
 }
@@ -150,19 +158,19 @@ button {
 }
 
 
+
 @media (max-width: 768px) {
     .weatherBody {
         flex-direction: column;
     }
 
-    
     .weatherColumn {
         background-image: linear-gradient(to right, $darkGray, $blue2);
         max-width: none;
         width: 100%;
         margin-bottom: 2%;
-        .gifArea {
-            max-width: 20%;
+        div {
+            margin: 1%;
         }
     }
     
@@ -171,5 +179,56 @@ button {
         align-items: center;
         justify-content: space-between;
     }
+    
+    .gifAndDates {
+        display: flex;
+        width: 40%;
+        flex: 0 0 auto;
+    }
+    
+    .dates {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+    }
+    h3, h4 {
+        margin: 10px 0;
+    }
+    
+    .gifArea {
+        max-width: 150px;
+    }
+    
+    footer a {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    h3 {
+        margin: 0;
+    }
+
+
+
+    .gifAndDates {
+        flex-direction: column;
+    }
+
+    .dates {
+        height: 100%;
+    }
+
+    .gifArea {
+        max-width: none;
+    }
+
+
+    
+
 
 }

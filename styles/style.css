@@ -472,7 +472,7 @@ header h1 {
     background-position: 0% 52%;
   }
 }
-.weatherWrapper, .footerWrapper {
+.weatherWrapper {
   margin: 1% auto;
   text-align: center;
 }
@@ -492,7 +492,6 @@ header h1 {
 .weatherColumn .gifArea {
   height: 150px;
   width: 100%;
-  background-color: blue;
 }
 .weatherColumn img {
   -o-object-fit: cover;
@@ -548,6 +547,20 @@ p::before {
   animation: AnimationName 33s ease infinite;
 }
 
+.activity {
+  margin-top: 10%;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 button {
   margin: 0 auto;
 }
@@ -571,8 +584,8 @@ button {
     width: 100%;
     margin-bottom: 2%;
   }
-  .weatherColumn .gifArea {
-    max-width: 20%;
+  .weatherColumn div {
+    margin: 1%;
   }
 
   .weatherWrapper {
@@ -585,5 +598,56 @@ button {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+
+  .gifAndDates {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 40%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+  }
+
+  .dates {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 150px;
+  }
+
+  h3, h4 {
+    margin: 10px 0;
+  }
+
+  .gifArea {
+    max-width: 150px;
+  }
+}
+@media (max-width: 500px) {
+  h3 {
+    margin: 0;
+  }
+
+  .gifAndDates {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .gifArea {
+    max-width: none;
   }
 }
