@@ -1,234 +1,254 @@
-h1, h2, h3 {
-    text-align: center;
+h1,
+h2,
+h3 {
+  text-align: center;
 }
 
 p {
-    margin: 5px 0 0 0;
+  margin: 5px 0 0 0;
+  font-size: 16px;
 }
 
 h4 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 img {
-    display: block;
+  display: block;
 }
 
-header h1{
+header h1 {
   margin-top: 0;
   padding-top: 3%;
 }
 
-
-.locationForm2{
+.locationForm2 {
   margin: 0 auto;
   width: 50%;
 }
 
-.weatherBody{
-    // display: grid;
-    // grid-template-columns: auto auto auto auto auto;
-    display: flex;
-    justify-content: space-evenly;
-
-    // Background animation 
-    background: -webkit-gradient(linear, right top, left top, from(#7a7974), color-stop(#61afee), to(#fbfbfb));
-    background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
-    background-size: 600% 600%;
-    -webkit-animation: AnimationName 33s ease infinite;
-    animation: AnimationName 33s ease infinite;
-  }
-  
-  @-webkit-keyframes AnimationName {
-    0% {
-      background-position: 0% 52%;
-    }
-    50% {
-      background-position: 100% 49%;
-    }
-    100% {
-      background-position: 0% 52%;
-    }
-  }
-  @keyframes AnimationName {
-    0% {
-      background-position: 0% 52%;
-    }
-    50% {
-      background-position: 100% 49%;
-    }
-    100% {
-      background-position: 0% 52%;
-    }
-}    
-
-
-.weatherWrapper{
-    margin: 1% auto;
-    text-align: center;
+.weatherBody {
+  // display: grid;
+  // grid-template-columns: auto auto auto auto auto;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+  text-shadow: 0 3px 3px rgb(58, 58, 58);
+  // Background animation
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#7a7974),
+    color-stop(#61afee),
+    to(#fbfbfb)
+  );
+  background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
+  background-size: 600% 600%;
+  -webkit-animation: AnimationName 33s ease infinite;
+  animation: AnimationName 33s ease infinite;
 }
 
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 52%;
+  }
+  50% {
+    background-position: 100% 49%;
+  }
+  100% {
+    background-position: 0% 52%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 52%;
+  }
+  50% {
+    background-position: 100% 49%;
+  }
+  100% {
+    background-position: 0% 52%;
+  }
+}
+
+.weatherWrapper {
+  margin: 1% auto;
+  text-align: center;
+}
 
 .weatherColumn {
-    background-image: linear-gradient($darkGray, $blue2);
-    border-radius: 20px;
+  background-image: linear-gradient($darkGray, $blue2);
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 1%;
+  font-family: $body-font;
+  .weatherWrapper {
+    width: 95%;
+  }
+  .gifArea {
+    height: 150px;
+    width: 100%;
+  }
+  img {
+    object-fit: cover;
     height: 100%;
     width: 100%;
-    max-width: 350px;
-    margin: 0 1%;
-    .weatherWrapper {
-        width: 95%;
-    }
-    .gifArea {
-        height: 150px;
-        width: 100%;
-    } 
-    img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-    }   
-  
-}    
+  }
+}
+
+h2{
+  font-family: $header-font;
+}
+
+h3,
+h4 {
+  font-family: $header-font;
+  text-transform: uppercase;
+  color: $yellow;
+}
+
+.dateName{
+  color: white;
+}
 
 p::before {
-    font-family: "Font Awesome 5 Free";
-    display: inline-block;
-    padding-right: 3px;
-    vertical-align: middle;
-    font-weight: 900;
- }
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+}
 
 //  <i class="fas fa-cloud-showers-heavy"></i>
 //  <i class="fas fa-snowflake"></i>
 //  <i class="fas fa-icicles"></i>
 //  <i class="fas fa-wind"></i>
 
-.dayRain::before, .nightRain::before {
-    content: "\f740";
+.dayRain::before,
+.nightRain::before {
+  content: "\f740";
 }
-.daySnow::before, .nightSnow::before {
-    content: "\f2dc";
+.daySnow::before,
+.nightSnow::before {
+  content: "\f2dc";
 }
-.dayIce::before, .nightIce::before {
-    content: "\f7ad";
+.dayIce::before,
+.nightIce::before {
+  content: "\f7ad";
 }
-.dayWind::before, .nightWind::before {
-    content: "\f72e";
+.dayWind::before,
+.nightWind::before {
+  content: "\f72e";
 }
 
-.tempMax, .tempMin {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    
+.tempMax,
+.tempMin {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.temperatures {
+  text-transform: uppercase;
+}
+
+.activity {
+  background-color: rgba(102, 51, 153, 0.363);
+  height: 100px;
+}
+
+.weatherPage {
+  background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationName 33s ease infinite;
+  -moz-animation: AnimationName 33s ease infinite;
+  animation: AnimationName 33s ease infinite;
 }
 
 .activity {
-    background-color: rgba(102, 51, 153, 0.363);
-    height: 100px;
-}    
-
-.weatherPage{
-    background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
-    background-size: 600% 600%;
-
-    -webkit-animation: AnimationName 33s ease infinite;
-    -moz-animation: AnimationName 33s ease infinite;
-    animation: AnimationName 33s ease infinite;
-}    
-
-.activity {
-    margin-top: 10%;
+  margin-top: 10%;
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
 button {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .hideWeather {
-    display: none;
-    
+  display: none;
 }
 
-
-
 @media (max-width: 768px) {
-    .weatherBody {
-        flex-direction: column;
-    }
+  .weatherBody {
+    flex-direction: column;
+  }
 
-    .weatherColumn {
-        background-image: linear-gradient(to right, $darkGray, $blue2);
-        max-width: none;
-        width: 100%;
-        margin-bottom: 2%;
-        div {
-            margin: 1%;
-        }
+  .weatherColumn {
+    background-image: linear-gradient(to right, $darkGray, $blue2);
+    max-width: none;
+    width: 100%;
+    margin-bottom: 2%;
+    div {
+      margin: 1%;
     }
-    
-    .weatherWrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .gifAndDates {
-        display: flex;
-        width: 40%;
-        flex: 0 0 auto;
-    }
-    
-    .dates {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 150px;
-    }
-    h3, h4 {
-        margin: 10px 0;
-    }
-    
-    .gifArea {
-        max-width: 150px;
-    }
-    
-    footer a {
-        text-align: center;
-    }
+  }
 
+  .weatherWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .gifAndDates {
+    display: flex;
+    width: 40%;
+    flex: 0 0 auto;
+  }
+
+  .dates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+  }
+  h3,
+  h4 {
+    margin: 10px 0;
+  }
+
+  .gifArea {
+    max-width: 150px;
+  }
+
+  footer a {
+    text-align: center;
+  }
 }
 
 @media (max-width: 500px) {
+  h3 {
+    margin: 0;
+  }
 
-    h3 {
-        margin: 0;
-    }
+  .gifAndDates {
+    flex-direction: column;
+  }
 
+  .dates {
+    height: 100%;
+  }
 
-
-    .gifAndDates {
-        flex-direction: column;
-    }
-
-    .dates {
-        height: 100%;
-    }
-
-    .gifArea {
-        max-width: none;
-    }
-
-
-    
-
-
+  .gifArea {
+    max-width: none;
+  }
 }

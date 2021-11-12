@@ -410,12 +410,15 @@ div.indexShow {
   color: #faff81;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
 }
 
 p {
   margin: 5px 0 0 0;
+  font-size: 16px;
 }
 
 h4 {
@@ -443,6 +446,8 @@ header h1 {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  color: white;
+  text-shadow: 0 3px 3px #3a3a3a;
   background: -webkit-gradient(linear, right top, left top, from(#7a7974), color-stop(#61afee), to(#fbfbfb));
   background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
   background-size: 600% 600%;
@@ -485,6 +490,7 @@ header h1 {
   width: 100%;
   max-width: 350px;
   margin: 0 1%;
+  font-family: "barlow";
 }
 .weatherColumn .weatherWrapper {
   width: 95%;
@@ -500,6 +506,21 @@ header h1 {
   width: 100%;
 }
 
+h2 {
+  font-family: "raleway";
+}
+
+h3,
+h4 {
+  font-family: "raleway";
+  text-transform: uppercase;
+  color: #faff81;
+}
+
+.dateName {
+  color: white;
+}
+
 p::before {
   font-family: "Font Awesome 5 Free";
   display: inline-block;
@@ -508,23 +529,28 @@ p::before {
   font-weight: 900;
 }
 
-.dayRain::before, .nightRain::before {
+.dayRain::before,
+.nightRain::before {
   content: "";
 }
 
-.daySnow::before, .nightSnow::before {
+.daySnow::before,
+.nightSnow::before {
   content: "";
 }
 
-.dayIce::before, .nightIce::before {
+.dayIce::before,
+.nightIce::before {
   content: "";
 }
 
-.dayWind::before, .nightWind::before {
+.dayWind::before,
+.nightWind::before {
   content: "";
 }
 
-.tempMax, .tempMin {
+.tempMax,
+.tempMin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -532,6 +558,10 @@ p::before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.temperatures {
+  text-transform: uppercase;
 }
 
 .activity {
@@ -559,6 +589,9 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 button {
@@ -627,7 +660,8 @@ button {
     height: 150px;
   }
 
-  h3, h4 {
+  h3,
+h4 {
     margin: 10px 0;
   }
 
