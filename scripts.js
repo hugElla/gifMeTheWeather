@@ -15,11 +15,11 @@ app.locationEndPoint = "/locations/v1/cities/search";
 app.forecastEndPoint = "/forecasts/v1/daily/5day/";
 
 // EXTRA API KEYS, CALLS LIMITED TO 50 PER DAY. COMMENT IN/OUT AS NEEDED
-app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
-// app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
+app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
-// app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
 // app.apiKey = "6TK8aMoezoeYGHIAiTiWck1u7uaxPARF";
+// app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
+// app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
 
 
 
