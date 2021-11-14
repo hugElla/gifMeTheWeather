@@ -411,6 +411,7 @@ app.activity = (tempArray) => {
     })
     .then((result) => {
       app.activityArray.push(result.activity)
+      console.log(app.activityArray)
   })
 })
 setTimeout(
@@ -418,7 +419,7 @@ setTimeout(
     for (i = 0; i < app.activityArray.length; i++) {
       activityContainers[i].innerHTML = `<h3>Activity of the day:</h3><p>${app.activityArray[i]}</p>`;
     };
-  },7000
+  },6000
 )
 }
 
