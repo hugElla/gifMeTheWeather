@@ -227,6 +227,11 @@ html {
   overflow: hidden;
 }
 
+body {
+  max-width: 3500px;
+  margin: 0 auto;
+}
+
 h1,
 h2,
 h3 {

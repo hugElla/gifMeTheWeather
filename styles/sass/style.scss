@@ -10,6 +10,11 @@ $headerFont: "Raleway";
 $bodyFont: "Barlow";
 
 // General page styling
+body {
+  max-width: 3500px;
+  margin: 0 auto;
+}
+
 h1,
 h2,
 h3 {
