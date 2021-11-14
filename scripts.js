@@ -133,7 +133,6 @@ app.getWeather = (location) => {
       return response.json();
     })
     .then((data) => {
-      // console.log(data.DailyForecasts);
       // passes the info to displayForecast
       app.displayForecast(data.DailyForecasts);
     })
@@ -385,7 +384,7 @@ app.retrieveGif = (urls) => {
       
             // displays gifs to the page
             for (i = 0; i < app.chosenGifs.length; i++) {
-              gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
+              gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="Gif of ${app.dayIconPhraseArray[i]} - ${app.chosenGifs[i].title}">`;
             };
       })
     })
@@ -411,7 +410,6 @@ app.activity = (tempArray) => {
     })
     .then((result) => {
       app.activityArray.push(result.activity)
-      console.log(app.activityArray)
   })
 })
 setTimeout(
