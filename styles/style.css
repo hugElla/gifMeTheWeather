@@ -427,6 +427,7 @@ h4 {
 
 img {
   display: block;
+  border-radius: 20px;
 }
 
 header h1 {
@@ -591,6 +592,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 5%;
 }
 
 button {
@@ -616,6 +618,11 @@ button {
   }
 }
 @media (max-width: 768px) {
+  h3,
+h4 {
+    margin: 10px 0;
+  }
+
   .mainBox {
     width: 70%;
   }
@@ -669,6 +676,9 @@ button {
     display: -ms-flexbox;
     display: flex;
   }
+  .weatherTop div {
+    margin: 0 3px;
+  }
 
   .gifAndDates {
     display: -webkit-box;
@@ -705,12 +715,6 @@ button {
     margin: 0;
   }
 
-  h3,
-h4 {
-    margin: 10px 0;
-    font-size: 15px;
-  }
-
   .gifArea {
     max-width: 150px;
   }
@@ -727,12 +731,28 @@ h4 {
     width: 50px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .mainBox {
     width: 80%;
   }
 
   .locationForm2 {
     width: 75%;
+  }
+
+  .weatherWrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .gifAndDates {
+    width: 100%;
+  }
+
+  .weatherColumn .gifArea {
+    max-width: none;
+    height: 100px;
   }
 }
