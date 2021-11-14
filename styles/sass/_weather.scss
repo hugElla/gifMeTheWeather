@@ -2,35 +2,33 @@ h1,
 h2,
 h3 {
   text-align: center;
-}
+};
 
 p {
   margin: 5px 0 0 0;
   font-size: 16px;
-}
+};
 
 h4 {
   margin-bottom: 10px;
-}
+};
 
 img {
   display: block;
   border-radius: 20px;
-}
+};
 
-header h1 {
+headerF1 {
   margin-top: 0;
   padding-top: 3%;
-}
+};
 
 .locationForm2 {
   margin: 0 auto;
   width: 50%;
-}
+};
 
 .weatherBody {
-  // display: grid;
-  // grid-template-columns: auto auto auto auto auto;
   display: flex;
   justify-content: space-evenly;
   color: white;
@@ -76,7 +74,7 @@ header h1 {
 .weatherWrapper {
   margin: 1% auto;
   text-align: center;
-}
+};
 
 .weatherColumn {
   background-image: linear-gradient($darkGray, $blue2);
@@ -85,35 +83,35 @@ header h1 {
   width: 100%;
   max-width: 350px;
   margin: 0 1%;
-  font-family: $body-font;
+  font-family: $bodyFont;
   .weatherWrapper {
     width: 95%;
-  }
+  };
   .gifArea {
     height: 150px;
     width: 100%;
-  }
+  };
   img {
     object-fit: cover;
     height: 100%;
     width: 100%;
-  }
-}
+  };
+};
 
 h2 {
-  font-family: $header-font;
-}
+  font-family: $headerFont;
+};
 
 h3,
 h4 {
-  font-family: $header-font;
+  font-family: $headerFont;
   text-transform: uppercase;
   color: $yellow;
-}
+};
 
 .dateName {
   color: white;
-}
+};
 
 p::before {
   font-family: "Font Awesome 5 Free";
@@ -121,40 +119,35 @@ p::before {
   padding-right: 3px;
   vertical-align: middle;
   font-weight: 900;
-}
-
-//  <i class="fas fa-cloud-showers-heavy"></i>
-//  <i class="fas fa-snowflake"></i>
-//  <i class="fas fa-icicles"></i>
-//  <i class="fas fa-wind"></i>
+};
 
 .dayRain::before,
 .nightRain::before {
   content: "\f740";
-}
+};
 .daySnow::before,
 .nightSnow::before {
   content: "\f2dc";
-}
+};
 .dayIce::before,
 .nightIce::before {
   content: "\f7ad";
-}
+};
 .dayWind::before,
 .nightWind::before {
   content: "\f72e";
-}
+};
 
 .tempMax,
 .tempMin {
   display: flex;
   text-align: center;
   justify-content: center;
-}
+};
 
 .temperatures {
   text-transform: uppercase;
-}
+};
 
 .weatherPage {
   background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
@@ -163,169 +156,27 @@ p::before {
   -webkit-animation: AnimationName 33s ease infinite;
   -moz-animation: AnimationName 33s ease infinite;
   animation: AnimationName 33s ease infinite;
-}
+};
 
 .activity {
   margin-top: 10%;
   padding: 10%;
   h3 {
     margin: 0;
-  }
-}
+  };
+};
 
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 5%;
-}
+};
 
 button {
   margin: 0 auto;
-}
+};
 
 .hideWeather {
   display: none;
-}
-
-
-@media (max-width: 812px) {
-  .indexBody {
-    h1 {
-      font-size: 40px;
-      font-weight: 700;
-    }
-    .letsGo {
-      padding: 8px 15px;
-      font-size: 30px;
-    }
-  }
-
-  .mainBox {
-    width: 75%;
-  }
-}
-
-
-
-// media queries
-@media (max-width: 768px) {
-
-  // h3, h4, p {
-  //   font-size: 14px;
-  // }
-
-  h3,
-  h4 {
-    margin: 10px 0;
-  }
-
-  .mainBox{
-    width: 70%;
-  }
-
-  .weatherBody {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .weatherColumn {
-    background-image: linear-gradient(to right, $darkGray, $blue2);
-    flex-direction: row;
-    max-width: none;
-    width: 98%;
-    margin: 0 0 2% 0;
-    div {
-      margin: 1% 0;
-    }
-    .weatherWrapper {
-      width: 100%;
-    }
-  }
-
-  .weatherWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-  }
-
-  .weatherTop {
-    display: flex;
-    div {
-      margin: 0 3px;
-    }
-  }
-
-  .gifAndDates {
-    display: flex;
-    width: 40%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .dates {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  .dateName {
-    margin: 0;
-  }
-
-  
-
-  .gifArea {
-    max-width: 150px;
-    // max-width: none;
-  }
-
-
-  footer a {
-    text-align: center;
-  }
-
-  .activity {
-    padding: 1%;
-    img {
-      height: 50px;
-      width: 50px;
-    }
-  }
-
-
-}
-
-
-@media (max-width: 500px) {
-  .mainBox {
-    width: 80%;
-  }
-  
-  .locationForm2{
-    width: 75%;
-  }
-
-  .weatherWrapper {
-    flex-direction: column;
-  }
-  
-  .gifAndDates {
-    width: 100%;
-  }
-
-  .weatherColumn .gifArea {
-    max-width: none;
-    height: 100px;
-  }
-
-
-}
-
-// @media (max-width: 320px) {
-
-// }
+};

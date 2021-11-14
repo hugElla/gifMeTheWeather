@@ -6,17 +6,18 @@ $blue2: #8093f11f;
 $yellow: #faff81;
 $gray: rgb(158, 156, 156);
 $darkGray: rgb(119, 124, 155);
-$header-font: "raleway";
-$body-font: "barlow";
+$headerFont: "raleway";
+$bodyFont: "barlow";
 
 // both general page styling
 h1 {
-  font-family: $header-font;
+  font-family: $headerFont;
   font-size: 50px;
   font-weight: 400;
   color: $blue;
   text-transform: uppercase;
   text-shadow: 0 5px 5px rgb(58, 58, 58);
+  margin-top: 0;
 };
 
 a {
@@ -25,7 +26,7 @@ a {
 
 p,
 a {
-  font-family: $body-font;
+  font-family: $bodyFont;
 };
 
 footer {
@@ -66,3 +67,4 @@ div.indexShow{
 
 @import "home";
 @import "weather";
+@import "mediaQueries";
