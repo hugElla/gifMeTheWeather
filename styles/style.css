@@ -234,6 +234,7 @@ h1 {
   color: #8093f1;
   text-transform: uppercase;
   text-shadow: 0 5px 5px #3a3a3a;
+  padding-top: 3%;
   margin-top: 0;
 }
 
@@ -429,11 +430,6 @@ h4 {
 img {
   display: block;
   border-radius: 20px;
-}
-
-headerF1 {
-  margin-top: 0;
-  padding-top: 3%;
 }
 
 .locationForm2 {
