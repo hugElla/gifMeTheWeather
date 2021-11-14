@@ -399,11 +399,11 @@ app.retrieveGif = (urls) => {
 app.activity = (tempArray) => {
   tempArray.forEach((temperature) => {
     if (temperature < -15 || temperature > 30) {
-      accessibility = 0.25;
-    } else if (10 < temperature < 20) {
+      accessibility = 0.1;
+    } else if (15 < temperature < 20) {
       accessibility =  1;
     } else {
-      accessibility = 0.5;
+      accessibility = 0.3;
     }
     fetch(`http://www.boredapi.com/api/activity?minaccessibility=0&maxaccessibility=`+ accessibility)
     .then(function (response) {

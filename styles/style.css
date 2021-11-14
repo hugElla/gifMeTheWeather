@@ -637,9 +637,10 @@ button {
     display: -ms-flexbox;
     display: flex;
     width: 40%;
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 auto;
-            flex: 0 0 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .dates {
@@ -656,12 +657,17 @@ button {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    height: 150px;
+    height: 100%;
+  }
+
+  .dateName {
+    margin: 0;
   }
 
   h3,
 h4 {
     margin: 10px 0;
+    font-size: 15px;
   }
 
   .gifArea {
@@ -671,24 +677,8 @@ h4 {
   footer a {
     text-align: center;
   }
-}
-@media (max-width: 500px) {
-  h3 {
-    margin: 0;
-  }
 
-  .gifAndDates {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-
-  .dates {
-    height: 100%;
-  }
-
-  .gifArea {
-    max-width: none;
+  .activity {
+    padding: 0;
   }
 }

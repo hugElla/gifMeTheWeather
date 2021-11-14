@@ -212,7 +212,8 @@ button {
   .gifAndDates {
     display: flex;
     width: 40%;
-    flex: 0 0 auto;
+    flex-direction: column;
+    // flex: 0 0 auto;
   }
 
   .dates {
@@ -220,36 +221,30 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 150px;
+    height: 100%;
   }
+
+  .dateName {
+    margin: 0;
+  }
+
   h3,
   h4 {
     margin: 10px 0;
+    font-size: 15px;
   }
 
   .gifArea {
     max-width: 150px;
+    // max-width: none;
   }
 
   footer a {
     text-align: center;
   }
-}
 
-@media (max-width: 500px) {
-  h3 {
-    margin: 0;
+  .activity {
+    padding: 0;
   }
 
-  .gifAndDates {
-    flex-direction: column;
-  }
-
-  .dates {
-    height: 100%;
-  }
-
-  .gifArea {
-    max-width: none;
-  }
 }
