@@ -187,9 +187,22 @@ button {
 }
 
 
+@media (max-width: 812px) {
+  .indexBody {
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+    }
+    .letsGo {
+      padding: 8px 15px;
+      font-size: 30px;
+    }
+  }
 
-
-
+  .mainBox {
+    width: 75%;
+  }
+}
 
 
 
@@ -207,19 +220,24 @@ button {
 
   .weatherColumn {
     background-image: linear-gradient(to right, $darkGray, $blue2);
+    flex-direction: row;
     max-width: none;
     width: 98%;
     margin: 0 0 2% 0;
     div {
-      margin: 1% 0 1% 0;
+      margin: 1% 0;
+    }
+    .weatherWrapper {
+      width: 100%;
     }
   }
 
   .weatherWrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
   }
 
   .weatherTop {
@@ -257,15 +275,20 @@ button {
     // max-width: none;
   }
 
+
   footer a {
     text-align: center;
   }
 
-  .weatherColumn .activity {
-    padding-bottom: 5%;
-    padding-top: 0;
-    margin-top: -2%;
+  .activity {
+    padding: 1%;
+    img {
+      height: 50px;
+      width: 50px;
+    }
   }
+
+
 }
 
 @media (max-width: 480px) {
