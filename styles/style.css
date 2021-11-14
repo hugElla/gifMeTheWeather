@@ -564,11 +564,6 @@ p::before {
   text-transform: uppercase;
 }
 
-.activity {
-  background-color: rgba(102, 51, 153, 0.363);
-  height: 100px;
-}
-
 .weatherPage {
   background: -webkit-gradient(linear, right top, left top, from(#7a7974), color-stop(#61afee), to(#fbfbfb));
   background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
@@ -579,6 +574,10 @@ p::before {
 
 .activity {
   margin-top: 10%;
+  padding: 10%;
+}
+.activity h3 {
+  margin: 0;
 }
 
 footer {

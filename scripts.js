@@ -5,7 +5,7 @@ const arrayUrls = []
 
 // randomizer function for picking a random gif
 app.randomizer = (array) => {
-  const randomIndex = Math.floor(Math.random() * 8);
+  const randomIndex = Math.floor(Math.random() * 10);
   return array[randomIndex];
 }
 
@@ -169,6 +169,9 @@ app.realTempMin = [];
 app.realTempMax = [];
 app.windSpeed = [];
 
+app.activityTemp = [];
+app.activityArray = [];
+
 // creating an array for gifs chosen randomly to be pushed into
 app.chosenGifs = [];
 
@@ -192,6 +195,7 @@ const tempMinContainers = document.querySelectorAll(".temperatureMin");
 const feelMaxContainers = document.querySelectorAll(".feelsMax");
 const feelMinContainers = document.querySelectorAll(".feelsMin");
 
+const activityContainers = document.querySelectorAll(".activity");
 
 
 // displays the weather to the page
@@ -222,6 +226,9 @@ app.displayForecast = (arrayFromWeather) => {
 
   app.chosenGifs = [];
 
+  app.activityTemp = [];
+  app.activityArray = [];
+
 
   // pushes returned values to the arrays
   arrayFromWeather.forEach((dayWeather) => {
@@ -245,10 +252,10 @@ app.displayForecast = (arrayFromWeather) => {
     app.realTempMin.push(Math.round(dayWeather.Temperature.Minimum.Value) + "° " + dayWeather.Temperature.Minimum.Unit);
     app.feelsLikeMax.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value) + "° " + dayWeather.RealFeelTemperature.Maximum.Unit);
     app.feelsLikeMin.push(Math.round(dayWeather.RealFeelTemperature.Minimum.Value) + "° " + dayWeather.RealFeelTemperature.Minimum.Unit);
+
+    app.activityTemp.push(Math.round(dayWeather.RealFeelTemperature.Maximum.Value))
     
-
-
-
+    
     
     // creating the url
     // COLIN: creating all 5 in one go and then adding them to an array
@@ -261,9 +268,12 @@ app.displayForecast = (arrayFromWeather) => {
     //COLIN: I added the arrayUrls variable way up on line 4
     arrayUrls.push(url);
   })
-
-
-
+  
+   // Taking the daily high temperature and passing it to the boredAPI function
+    app.activity(app.activityTemp);
+   
+  
+  
   // Colin: only call this function once, passing the array or URLS
   app.retrieveGif(arrayUrls);
 
@@ -292,10 +302,10 @@ app.displayForecast = (arrayFromWeather) => {
     nightIceContainers[i].innerText = `${app.nightIceArray[i]}`
     nightWindContainers[i].innerText = `${app.nightWindArray[i]}`
 
-    tempMaxContainers[i].innerText = `${app.realTempMax[i]} `
-    feelMaxContainers[i].innerText = `/ ${app.feelsLikeMax[i]}`
-    tempMinContainers[i].innerText = `${app.realTempMin[i]} `
-    feelMinContainers[i].innerText = `/ ${app.feelsLikeMin[i]}`
+    tempMaxContainers[i].innerText = `${app.realTempMax[i]} / `
+    feelMaxContainers[i].innerText = `${app.feelsLikeMax[i]}`
+    tempMinContainers[i].innerText = `${app.realTempMin[i]} / `
+    feelMinContainers[i].innerText = `${app.feelsLikeMin[i]}`
   }
 
 
@@ -384,54 +394,34 @@ app.retrieveGif = (urls) => {
 };
 
 
-//   // giphy api call
-// app.retrieveGif = (iconPhrase) => {
+// Takes the temperature high of the day and passes it to the BoredAPI so that it can suggest an activity based on the temperature of the day
+// There is a setTimeout function due to a delay in the API
+app.activity = (tempArray) => {
+  tempArray.forEach((temperature) => {
+    if (temperature < -15 || temperature > 30) {
+      accessibility = 0.25;
+    } else if (10 < temperature < 20) {
+      accessibility =  1;
+    } else {
+      accessibility = 0.5;
+    }
+    fetch(`http://www.boredapi.com/api/activity?minaccessibility=0&maxaccessibility=`+ accessibility)
+    .then(function (response) {
+      return response.json();
+    })
+    .then((result) => {
+      app.activityArray.push(result.activity)
+  })
+})
+setTimeout(
+  function() {
+    for (i = 0; i < app.activityArray.length; i++) {
+      activityContainers[i].innerHTML = `<h3>Activity of the day:</h3><p>${app.activityArray[i]}</p>`;
+    };
+  },4000
+)
+}
 
-//   // creating the url
-//   const url = new URL(`${app.giphyUrl}`);
-//   url.search = new URLSearchParams({
-//     q: `weather+sky+nature+${iconPhrase}`,
-//     api_key: app.giphyApiKey
-//   });
-
-
-//   // fetching the data (gifs)
-//   fetch(url)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then((gifArray) => {
-//       const obtainedGifs = gifArray.data;
-
-//       // obtains ransom gif from gif array
-//       app.chosenGifs.push(app.randomizer(obtainedGifs));
-
-//       // Querying the DOM for the GIF container
-//       const gifContainers = document.querySelectorAll(".gifArea");
-
-//       // displays gifs to the page
-//       for (i = 0; i < app.chosenGifs.length; i++) {
-//         gifContainers[i].innerHTML = `<img src="${app.chosenGifs[i].images.original.url}" alt="${app.chosenGifs[i].title}">`;
-//       };
-//     });
-// };
-
-// app.activity = (temperature) => {
-//   fetch(`http://www.boredapi.com/api/activity?accessibility`+temperature)
-//   .then(function (response) {
-//       return response.json();
-//   })
-//   .then((activity) => {
-//       console.log(activity)
-//   })
-// }
-
-
-// app.init = () => {
-//   num = Math.floor()
-//   app.activity(num);
-//   console.log(num);
-// }
 
 
 app.init = () => {
