@@ -15,10 +15,10 @@ app.locationEndPoint = "/locations/v1/cities/search";
 app.forecastEndPoint = "/forecasts/v1/daily/5day/";
 
 // EXTRA API KEYS, CALLS LIMITED TO 50 PER DAY. COMMENT IN/OUT AS NEEDED
-// app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
+app.apiKey = "vGXkpHg0aMsvhNmAxwDASbd4qs7nQ8tQ";
 // app.apiKey = "F3qBixSACB4wgorFTTxE3ANdJkzcjhtA";
 // app.apiKey = "fwFkFHtNtvIEuQyNesPT4F1Watb33kP3";
-app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
+// app.apiKey = "gMBiAdRmah3cdhTjxeA30r952zsbfKG8";
 // app.apiKey = "6TK8aMoezoeYGHIAiTiWck1u7uaxPARF";
 
 
@@ -405,7 +405,7 @@ app.activity = (tempArray) => {
     } else {
       accessibility = 0.3;
     }
-    fetch(`http://www.boredapi.com/api/activity?minaccessibility=0&maxaccessibility=`+ accessibility)
+    fetch(`https://www.boredapi.com/api/activity?minaccessibility=0&maxaccessibility=`+ accessibility)
     .then(function (response) {
       return response.json();
     })
@@ -418,7 +418,7 @@ setTimeout(
     for (i = 0; i < app.activityArray.length; i++) {
       activityContainers[i].innerHTML = `<h3>Activity of the day:</h3><p>${app.activityArray[i]}</p>`;
     };
-  },5000
+  },4000
 )
 }
 
