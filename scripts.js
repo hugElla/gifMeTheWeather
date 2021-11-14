@@ -418,7 +418,7 @@ setTimeout(
     for (i = 0; i < app.activityArray.length; i++) {
       activityContainers[i].innerHTML = `<h3>Activity of the day:</h3><p>${app.activityArray[i]}</p>`;
     };
-  },4000
+  },7000
 )
 }
 
