@@ -261,7 +261,7 @@ app.displayForecast = (arrayFromWeather) => {
     // COLIN: creating all 5 in one go and then adding them to an array
     const url = new URL(`${app.giphyUrl}`);
     url.search = new URLSearchParams({
-      q: `weather+sky+nature+${dayPhrase}`,
+      q: `${dayPhrase}+weather+sky`,
       api_key: app.giphyApiKey
     });
   

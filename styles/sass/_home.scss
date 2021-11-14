@@ -3,21 +3,21 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .mainBox{
   background-color: $gray;
-  width: 50%;
-  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 5%;  
+  width: 50%;
+  border-radius: 20px;
   box-shadow: 0px 0px 20px rgba($color: white, $alpha: 0.5);
   main{
     display: flex;
@@ -41,7 +41,7 @@
 
 .locationInput,
 .locationInput2{
-  font-family: $bodyFont;
+  font-family: $bodyFont, sans-serif;
   font-style: italic;
   letter-spacing: 1px;
   height: 50px;
@@ -54,27 +54,27 @@
 
 .locationInput:focus,
 .locationInput2:focus{
-  outline:none;
   background-color: $yellow;
+  outline:none;
   box-shadow: 0px 0px 20px rgba($color: white, $alpha: 0.7);
 }
 
 .letsGo,
 .nextCity,
 .nextCityButton {
-  background-color: $blue;
-  padding: 10px 20px;
-  color: white;
-  margin: 20px 0;
-  text-transform: uppercase;
   font-family: $bodyFont;
   font-size: 40px;
   font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 3px 3px rgb(58, 58, 58);
+  color: white;
+  background-color: $blue;
+  padding: 10px 20px;
+  margin: 20px 0;
   border: 5px solid $blue;
   border-radius: 20px;
-  transition: all 0.4s ease-out;
   box-shadow: 0 5px 5px rgb(58, 58, 58);
-  text-shadow: 0 3px 3px rgb(58, 58, 58);
+  transition: all 0.4s ease-out;
 };
 
 .letsGo:hover,
@@ -83,8 +83,8 @@
 .nextCity:focus,
 .nextCityButton:hover,
 .nextCityButton:focus{
-  background-color: white;
   color: $blue;
+  background-color: white;
   cursor: pointer;
 }
 

@@ -227,15 +227,30 @@ html {
   overflow: hidden;
 }
 
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
 h1 {
-  font-family: "raleway";
+  font-family: "Raleway", sans-serif;
   font-size: 50px;
   font-weight: 400;
-  color: #8093f1;
-  text-transform: uppercase;
   text-shadow: 0 5px 5px #3a3a3a;
+  text-transform: uppercase;
+  color: #8093f1;
   padding-top: 3%;
   margin-top: 0;
+}
+
+h4 {
+  margin-bottom: 10px;
+}
+
+img {
+  display: block;
+  border-radius: 20px;
 }
 
 a {
@@ -244,23 +259,28 @@ a {
 
 p,
 a {
-  font-family: "barlow";
+  font-family: "Barlow", sans-serif;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0 0 0;
 }
 
 footer p {
+  font-weight: 500;
+  text-shadow: 0 1px 1px #3a3a3a;
+  color: #9c6666;
   background-color: white;
-  color: #9e9c9c;
   border-radius: 20px;
   padding: 10px;
   -webkit-box-shadow: 0 2px 2px #3a3a3a;
           box-shadow: 0 2px 2px #3a3a3a;
-  text-shadow: 0 1px 1px #3a3a3a;
-  font-weight: 500;
 }
 footer a {
-  color: #8093f1;
   font-weight: 500;
   text-shadow: 0 1px 1px #3a3a3a;
+  color: #8093f1;
   -webkit-transition: color 0.4s ease-out;
   transition: color 0.4s ease-out;
 }
@@ -288,7 +308,6 @@ div.indexShow {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -298,12 +317,11 @@ div.indexShow {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100vh;
 }
 
 .mainBox {
   background-color: #9e9c9c;
-  width: 50%;
-  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -318,6 +336,8 @@ div.indexShow {
       -ms-flex-align: center;
           align-items: center;
   padding: 5%;
+  width: 50%;
+  border-radius: 20px;
   -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
           box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
 }
@@ -357,7 +377,7 @@ div.indexShow {
 
 .locationInput,
 .locationInput2 {
-  font-family: "barlow";
+  font-family: "Barlow", sans-serif;
   font-style: italic;
   letter-spacing: 1px;
   height: 50px;
@@ -371,8 +391,8 @@ div.indexShow {
 
 .locationInput:focus,
 .locationInput2:focus {
-  outline: none;
   background-color: #faff81;
+  outline: none;
   -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
           box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
 }
@@ -380,21 +400,21 @@ div.indexShow {
 .letsGo,
 .nextCity,
 .nextCityButton {
-  background-color: #8093f1;
-  padding: 10px 20px;
-  color: white;
-  margin: 20px 0;
-  text-transform: uppercase;
-  font-family: "barlow";
+  font-family: "Barlow";
   font-size: 40px;
   font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 3px 3px #3a3a3a;
+  color: white;
+  background-color: #8093f1;
+  padding: 10px 20px;
+  margin: 20px 0;
   border: 5px solid #8093f1;
   border-radius: 20px;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
   -webkit-box-shadow: 0 5px 5px #3a3a3a;
           box-shadow: 0 5px 5px #3a3a3a;
-  text-shadow: 0 3px 3px #3a3a3a;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 .letsGo:hover,
@@ -403,8 +423,8 @@ div.indexShow {
 .nextCity:focus,
 .nextCityButton:hover,
 .nextCityButton:focus {
-  background-color: white;
   color: #8093f1;
+  background-color: white;
   cursor: pointer;
 }
 
@@ -412,40 +432,32 @@ div.indexShow {
   color: #faff81;
 }
 
-h1,
-h2,
-h3 {
-  text-align: center;
-}
-
-p {
-  margin: 5px 0 0 0;
-  font-size: 16px;
-}
-
-h4 {
-  margin-bottom: 10px;
-}
-
-img {
-  display: block;
-  border-radius: 20px;
-}
-
 .locationForm2 {
-  margin: 0 auto;
   width: 50%;
+  margin: 0 auto;
+}
+
+.weatherPage {
+  background: -webkit-gradient(linear, right top, left top, from(#7a7974), color-stop(#61afee), to(#fbfbfb));
+  background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
+  background-size: 600% 600%;
+  -webkit-animation: AnimationName 33s ease infinite;
+  animation: AnimationName 33s ease infinite;
+}
+
+.hideWeather {
+  display: none;
 }
 
 .weatherBody {
+  text-shadow: 0 3px 3px #3a3a3a;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  color: white;
-  text-shadow: 0 3px 3px #3a3a3a;
   background: -webkit-gradient(linear, right top, left top, from(#7a7974), color-stop(#61afee), to(#fbfbfb));
   background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
   background-size: 600% 600%;
@@ -475,20 +487,15 @@ img {
     background-position: 0% 52%;
   }
 }
-.weatherWrapper {
-  margin: 1% auto;
-  text-align: center;
-}
-
 .weatherColumn {
+  font-family: "Barlow", sans-serif;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#777c9b), to(#8093f11f));
   background-image: linear-gradient(#777c9b, #8093f11f);
-  border-radius: 20px;
   height: 100%;
   width: 100%;
   max-width: 350px;
   margin: 0 1%;
-  font-family: "barlow";
+  border-radius: 20px;
 }
 .weatherColumn .weatherWrapper {
   width: 95%;
@@ -504,13 +511,18 @@ img {
   width: 100%;
 }
 
+.weatherWrapper {
+  text-align: center;
+  margin: 1% auto;
+}
+
 h2 {
-  font-family: "raleway";
+  font-family: "Raleway", sans-serif;
 }
 
 h3,
 h4 {
-  font-family: "raleway";
+  font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   color: #faff81;
 }
@@ -547,32 +559,24 @@ p::before {
   content: "";
 }
 
+.temperatures {
+  text-transform: uppercase;
+}
+
 .tempMax,
 .tempMin {
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.temperatures {
-  text-transform: uppercase;
-}
-
-.weatherPage {
-  background: -webkit-gradient(linear, right top, left top, from(#7a7974), color-stop(#61afee), to(#fbfbfb));
-  background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
-  background-size: 600% 600%;
-  -webkit-animation: AnimationName 33s ease infinite;
-  animation: AnimationName 33s ease infinite;
-}
-
 .activity {
-  margin-top: 10%;
   padding: 10%;
+  margin-top: 10%;
 }
 .activity h3 {
   margin: 0;
@@ -596,18 +600,14 @@ button {
   margin: 0 auto;
 }
 
-.hideWeather {
-  display: none;
-}
-
 @media (max-width: 812px) {
   .indexBody h1 {
     font-size: 40px;
     font-weight: 700;
   }
   .indexBody .letsGo {
-    padding: 8px 15px;
     font-size: 30px;
+    padding: 8px 15px;
   }
 
   .mainBox {
@@ -641,8 +641,8 @@ h4 {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    max-width: none;
     width: 98%;
+    max-width: none;
     margin: 0 0 2% 0;
   }
   .weatherColumn div {
@@ -660,12 +660,12 @@ h4 {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .weatherTop {

@@ -6,20 +6,37 @@ $blue2: #8093f11f;
 $yellow: #faff81;
 $gray: rgb(158, 156, 156);
 $darkGray: rgb(119, 124, 155);
-$headerFont: "raleway";
-$bodyFont: "barlow";
+$headerFont: "Raleway";
+$bodyFont: "Barlow";
 
-// both general page styling
+// General page styling
+h1,
+h2,
+h3 {
+  text-align: center;
+};
+
 h1 {
-  font-family: $headerFont;
+  font-family: $headerFont, sans-serif;
   font-size: 50px;
   font-weight: 400;
-  color: $blue;
-  text-transform: uppercase;
   text-shadow: 0 5px 5px rgb(58, 58, 58);
+  text-transform: uppercase;
+  color: $blue;
   padding-top: 3%;
   margin-top: 0;
 };
+
+
+h4 {
+  margin-bottom: 10px;
+};
+
+img {
+  display: block;
+  border-radius: 20px;
+};
+
 
 a {
   text-decoration: none;
@@ -27,23 +44,28 @@ a {
 
 p,
 a {
-  font-family: $bodyFont;
+  font-family: $bodyFont, sans-serif;
+};
+
+p {
+  font-size: 16px;
+  margin: 5px 0 0 0;
 };
 
 footer {
   p {
+    font-weight: 500;
+    text-shadow: 0 1px 1px rgb(58, 58, 58);
+    color: rgb(156, 102, 102);
     background-color: white;
-    color: rgb(158, 156, 156);
     border-radius: 20px;
     padding: 10px;
     box-shadow: 0 2px 2px rgb(58, 58, 58);
-    text-shadow: 0 1px 1px rgb(58, 58, 58);
-    font-weight: 500;
   };
   a {
-    color: $blue;
     font-weight: 500;
     text-shadow: 0 1px 1px rgb(58, 58, 58);
+    color: $blue;
     transition: color 0.4s ease-out;
   };
   a:hover,

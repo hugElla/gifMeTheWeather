@@ -1,34 +1,26 @@
-h1,
-h2,
-h3 {
-  text-align: center;
-};
-
-p {
-  margin: 5px 0 0 0;
-  font-size: 16px;
-};
-
-h4 {
-  margin-bottom: 10px;
-};
-
-img {
-  display: block;
-  border-radius: 20px;
-};
-
-
 .locationForm2 {
-  margin: 0 auto;
   width: 50%;
+  margin: 0 auto;
+};
+
+.weatherPage {
+  background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationName 33s ease infinite;
+  -moz-animation: AnimationName 33s ease infinite;
+  animation: AnimationName 33s ease infinite;
+};
+
+.hideWeather {
+  display: none;
 };
 
 .weatherBody {
+  text-shadow: 0 3px 3px rgb(58, 58, 58);
+  color: white;
   display: flex;
   justify-content: space-evenly;
-  color: white;
-  text-shadow: 0 3px 3px rgb(58, 58, 58);
   // Background animation
   background: -webkit-gradient(
     linear,
@@ -55,6 +47,7 @@ img {
     background-position: 0% 52%;
   }
 }
+
 @keyframes AnimationName {
   0% {
     background-position: 0% 52%;
@@ -67,19 +60,14 @@ img {
   }
 }
 
-.weatherWrapper {
-  margin: 1% auto;
-  text-align: center;
-};
-
 .weatherColumn {
+  font-family: $bodyFont, sans-serif;
   background-image: linear-gradient($darkGray, $blue2);
-  border-radius: 20px;
   height: 100%;
   width: 100%;
   max-width: 350px;
   margin: 0 1%;
-  font-family: $bodyFont;
+  border-radius: 20px;
   .weatherWrapper {
     width: 95%;
   };
@@ -94,13 +82,19 @@ img {
   };
 };
 
+.weatherWrapper {
+  text-align: center;
+  margin: 1% auto;
+};
+
+
 h2 {
-  font-family: $headerFont;
+  font-family: $headerFont, sans-serif;
 };
 
 h3,
 h4 {
-  font-family: $headerFont;
+  font-family: $headerFont, sans-serif;
   text-transform: uppercase;
   color: $yellow;
 };
@@ -134,29 +128,21 @@ p::before {
   content: "\f72e";
 };
 
-.tempMax,
-.tempMin {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-};
-
 .temperatures {
   text-transform: uppercase;
 };
 
-.weatherPage {
-  background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
-  background-size: 600% 600%;
-
-  -webkit-animation: AnimationName 33s ease infinite;
-  -moz-animation: AnimationName 33s ease infinite;
-  animation: AnimationName 33s ease infinite;
+.tempMax,
+.tempMin {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 };
 
+
 .activity {
-  margin-top: 10%;
   padding: 10%;
+  margin-top: 10%;
   h3 {
     margin: 0;
   };
@@ -173,6 +159,3 @@ button {
   margin: 0 auto;
 };
 
-.hideWeather {
-  display: none;
-};

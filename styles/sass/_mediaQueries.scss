@@ -7,8 +7,8 @@
       font-weight: 700;
     }
     .letsGo {
-      padding: 8px 15px;
       font-size: 30px;
+      padding: 8px 15px;
     }
   }
 
@@ -16,7 +16,6 @@
     width: 75%;
   }
 }
-
 
 
 
@@ -39,8 +38,8 @@
   .weatherColumn {
     background-image: linear-gradient(to right, $darkGray, $blue2);
     flex-direction: row;
-    max-width: none;
     width: 98%;
+    max-width: none;
     margin: 0 0 2% 0;
     div {
       margin: 1% 0;
@@ -53,8 +52,8 @@
   .weatherWrapper {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
   }
 
