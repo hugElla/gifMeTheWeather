@@ -602,34 +602,51 @@ button {
 }
 
 @media (max-width: 768px) {
+  .mainBox {
+    width: 70%;
+  }
+
   .weatherBody {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .weatherColumn {
     background-image: -webkit-gradient(linear, left top, right top, from(#777c9b), to(#8093f11f));
     background-image: linear-gradient(to right, #777c9b, #8093f11f);
     max-width: none;
-    width: 100%;
-    margin-bottom: 2%;
+    width: 98%;
+    margin: 0 0 2% 0;
   }
   .weatherColumn div {
-    margin: 1%;
+    margin: 1% 0 1% 0;
   }
 
   .weatherWrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+
+  .weatherTop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .gifAndDates {
@@ -641,6 +658,9 @@ button {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .dates {
@@ -678,7 +698,18 @@ h4 {
     text-align: center;
   }
 
-  .activity {
-    padding: 0;
+  .weatherColumn .activity {
+    padding-bottom: 5%;
+    padding-top: 0;
+    margin-top: -2%;
+  }
+}
+@media (max-width: 480px) {
+  .mainBox {
+    width: 80%;
+  }
+
+  .locationForm2 {
+    width: 75%;
   }
 }

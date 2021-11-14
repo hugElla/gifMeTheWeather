@@ -99,7 +99,7 @@ header h1 {
   }
 }
 
-h2{
+h2 {
   font-family: $header-font;
 }
 
@@ -110,7 +110,7 @@ h4 {
   color: $yellow;
 }
 
-.dateName{
+.dateName {
   color: white;
 }
 
@@ -155,8 +155,6 @@ p::before {
   text-transform: uppercase;
 }
 
-
-
 .weatherPage {
   background: linear-gradient(270deg, #7a7974, #61afee, #fbfbfb);
   background-size: 600% 600%;
@@ -188,31 +186,51 @@ button {
   display: none;
 }
 
+
+
+
+
+
+
+
+// media queries
 @media (max-width: 768px) {
+
+  .mainBox{
+    width: 70%;
+  }
+
   .weatherBody {
     flex-direction: column;
+    align-items: center;
   }
 
   .weatherColumn {
     background-image: linear-gradient(to right, $darkGray, $blue2);
     max-width: none;
-    width: 100%;
-    margin-bottom: 2%;
+    width: 98%;
+    margin: 0 0 2% 0;
     div {
-      margin: 1%;
+      margin: 1% 0 1% 0;
     }
   }
 
   .weatherWrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .weatherTop {
+    display: flex;
   }
 
   .gifAndDates {
     display: flex;
     width: 40%;
     flex-direction: column;
+    align-items: center;
     // flex: 0 0 auto;
   }
 
@@ -243,8 +261,23 @@ button {
     text-align: center;
   }
 
-  .activity {
-    padding: 0;
+  .weatherColumn .activity {
+    padding-bottom: 5%;
+    padding-top: 0;
+    margin-top: -2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainBox {
+    width: 80%;
   }
 
+  .locationForm2{
+    width: 75%;
+  }
 }
+
+// @media (max-width: 320px) {
+
+// }
